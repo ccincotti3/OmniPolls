@@ -1,3 +1,3 @@
 # OmniPolls
 
-OmniPolls is web application inspired by Poll Everywhere built on ReactJS + Rails
+OmniPolls is a live polling web application inspired by Poll Everywhere built on ReactJS + Rails
