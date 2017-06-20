@@ -11,16 +11,20 @@ class Greeting extends React.Component {
 
     const sessionLinks = () => (
       <nav className="header-group">
-        <Link to="/login">Log in</Link>
-        <Link to="/signup">Sign up</Link>
+        <div className="nav-links">
+          <Link to="/login">Log in</Link>
+          <Link className="nav-button" to="/signup">Sign up</Link>
+        </div>
       </nav>
 
     );
 
     const personalGreeting = (currentUser, logOut) => (
       <nav className="header-group">
-        <Link to="/polls" role="button">My polls</Link>
-        <button className="header-button" onClick={logOut}>Log Out</button>
+        <div className="nav-links">
+          <Link to="/polls" role="button">My polls</Link>
+          <button className="header-button" onClick={logOut}>Log Out</button>
+        </div>
       </nav>
     );
 
