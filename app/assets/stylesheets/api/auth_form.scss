@@ -26,6 +26,11 @@
   box-sizing: border-box;
 }
 
+.auth-form input[type="text"] {
+  font-weight: bold;
+  font-size: 16px;
+}
+
 .auth-form button {
   width: 100%;
   background-color: #fc5d51;
@@ -33,6 +38,11 @@
   padding: 8.8px 12px;
   display: inline-block;
   font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.auth-form button:hover {
+  background-color: #e35449;
 }
 
 .auth-form span {
