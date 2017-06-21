@@ -1,12 +1,12 @@
 import React from 'react';
-class SessionForm extends React.Component {
+class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: "",
       password: "",
-      firstName: "",
-      lastName: ""
+      first_name: "",
+      last_name: ""
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.update = this.update.bind(this)
@@ -15,7 +15,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.logIn({user});
+    this.props.signUp({user});
   }
 
   update(property) {
@@ -25,18 +25,18 @@ class SessionForm extends React.Component {
   render() {
     return(
       <div className="logIn">
-        <h1> Log in </h1>
+        <h1> Sign up </h1>
         <form onSubmit={this.handleSubmit}>
           <label>First Name</label>
           <input type="text"
-            onChange = {this.update('firstName')}
-            value={this.state.firstName}
+            onChange = {this.update('first_name')}
+            value={this.state.first_name}
           /><br />
 
           <label>Last Name</label>
           <input type="text"
-            onChange = {this.update('lastName')}
-            value={this.state.lastName}
+            onChange = {this.update('last_name')}
+            value={this.state.last_name}
           /><br />
 
           <label>Username</label>
@@ -50,7 +50,7 @@ class SessionForm extends React.Component {
             value={this.state.password}
             onChange = {this.update('password')}
             />
-          <button type="submit">Log in</button>
+          <button type="submit">Create my account</button>
         </form>
       </div>
     )
@@ -60,4 +60,4 @@ class SessionForm extends React.Component {
 
 }
 
-export default SessionForm;
+export default SignUpForm;
