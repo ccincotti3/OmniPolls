@@ -8,11 +8,11 @@ const defaultState = {
 
 const groupReducer = (state = defaultState, action) => {
   Object.freeze(state);
-  let newState;
+  let newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_ALL_GROUPS:
-      newState = action.groups;
-      return merge({}, state.groups, newState);
+      newState.groups = merge({}, newState.groups, action.groups);
+      return newState;
     case RECEIVE_GROUP:
       newState = action.group;
       return merge({}, state.groups, newState);

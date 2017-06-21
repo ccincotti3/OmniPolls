@@ -28,7 +28,6 @@ class Api::QuestionsController < ApplicationController
   private
 
   def question_params
-    debugger
     params.require(:question).permit(:body, :question_type, :group_id, :active)
   end
 

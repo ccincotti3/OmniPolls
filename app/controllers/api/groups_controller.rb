@@ -1,7 +1,6 @@
 class Api::GroupsController < ApplicationController
   def index
     if current_user
-      debugger
       @groups = Group.where(author_id: current_user.id)
       render 'api/groups/index'
     else
@@ -38,7 +37,6 @@ class Api::GroupsController < ApplicationController
   private
 
   def group_params
-    debugger
     params.require(:group).permit(:title, :author_id)
   end
 
