@@ -1,10 +1,11 @@
 .header-group {
   height: 75px;
-  width: 75%;
+  width: 100%;
   display: inline-block;
-  margin-left: 10px;
   text-align: right;
-
+  box-shadow: 0px 1px 10px rgba(79,79,79,0.35);
+  position: relative;
+  z-index: 2;
 
 }
 
@@ -12,9 +13,32 @@
   position: relative;
   top: 40%;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: 15%;
 }
 
 .nav-links a {
   margin-left: 10px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.nav-links a:first-child {
+  padding-right: 40px;
+  text-decoration: none;
+}
+
+.nav-links a:visited {
+  color: #6193c5;
+}
+
+.signup-button {
+  border: .2px solid #6193c5;
+  transition: background-color 0.2s ease,
+  color 0.2s ease;
+  background-color: white;
+  color: #6193c5;
+  padding: 4px 16px;
+}
+.signup-button:hover {
+  color: white !important;
+  background-color: #6193c5;
 }

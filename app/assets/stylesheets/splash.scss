@@ -16,21 +16,23 @@
 }
 
 .marquee-text-container {
-  margin-left: auto;
+  margin-left: 15%;
   margin-right: auto;
   max-width: 60em;
   box-sizing: border-box;
-  width: 75%;
+  max-width: 100%;
 
 }
 
 .marquee-text-container h1 {
-  font-weight: 700;
-  font-size: 50px;
+  font-size: 69px;
+  font-weight: bold;
   color: #6193c5;
   background-color: white;
   float:left;
   clear:left;
   padding: 12px 32px;
-  margin: 10px 0;
+  margin: 6.9px 0;
+  line-height: 1;
+  box-sizing: border-box;
 }

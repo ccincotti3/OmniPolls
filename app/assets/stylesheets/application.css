@@ -13,8 +13,17 @@
  *= require_tree .
  *= require_self
  */
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700');
 
  body {
-   font-family: sans-serif;
+   font-family: "Source Sans Pro",source-sans-pro,Helvetica,Verdana,sans-serif;
    margin: 0;
+ }
+
+ a, button {
+   cursor:pointer;
+   border: 0;
+   background: none;
+   box-shadow:none;
+   border-radius: 0px;
  }

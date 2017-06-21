@@ -13,7 +13,7 @@ class Greeting extends React.Component {
       <nav className="header-group">
         <div className="nav-links">
           <Link to="/login">Log in</Link>
-          <Link className="nav-button" to="/signup">Sign up</Link>
+          <Link className="signup-button" to="/signup">Sign up</Link>
         </div>
       </nav>
 

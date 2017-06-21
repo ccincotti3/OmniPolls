@@ -22,7 +22,7 @@ class SessionForm extends React.Component {
 
   render() {
     return(
-      <div className="logIn">
+      <div className="auth-form">
         <h1> Log in </h1>
         <form onSubmit={this.handleSubmit}>
           <label>Username</label>

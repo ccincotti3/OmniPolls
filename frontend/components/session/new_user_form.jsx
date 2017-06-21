@@ -24,7 +24,7 @@ class SignUpForm extends React.Component {
 
   render() {
     return(
-      <div className="logIn">
+      <div className="auth-form">
         <h1> Sign up </h1>
         <form onSubmit={this.handleSubmit}>
           <label>First Name</label>
