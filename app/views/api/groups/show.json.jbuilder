@@ -1,1 +1,1 @@
-json.extract! @group, :id, :title, :author_id
+json.partial! 'group', group: @group

@@ -1,9 +1,12 @@
 class Api::GroupsController < ApplicationController
   def index
     if current_user
+      debugger
       @groups = Group.where(author_id: current_user.id)
+      render 'api/groups/index'
+    else
+      render json: ["Must be logged in"], status: 422
     end
-    render 'api/groups/index'
   end
 
   def create
