@@ -10,22 +10,27 @@ class Greeting extends React.Component {
   render() {
 
     const sessionLinks = () => (
-      <nav className="header-group">
-        <div className="nav-links">
-          <Link to="/login">Log in</Link>
-          <Link className="signup-button" to="/signup">Sign up</Link>
-        </div>
-      </nav>
+      <div className="sticky">
+        <nav className="header-group">
+          <Link to="/"><span className= "logo"><i className="fa fa-line-chart"></i> OmniPolls</span></Link>
+          <div className="nav-links">
+            <Link to="/login">Log in</Link>
+            <Link className="signup-button" to="/signup">Sign up</Link>
+          </div>
+        </nav>
+      </div>
 
     );
 
     const personalGreeting = (currentUser, logOut) => (
-      <nav className="header-group">
-        <div className="nav-links">
-          <Link to="/polls" role="button">My polls</Link>
-          <button className="header-button" onClick={logOut}>Log Out</button>
-        </div>
-      </nav>
+      <div className="sticky">
+        <nav className="header-group">
+          <div className="nav-links">
+            <Link to="/polls" role="button">My polls</Link>
+            <button className="header-button" onClick={logOut}>Log Out</button>
+          </div>
+        </nav>
+      </div>
     );
 
     const Greeting = ({ currentUser, logOut }) => (

@@ -6,6 +6,9 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import GreetingContainer from './splash_index/greeting_container';
 import AuthRender from './session/auth_render_page';
 import GroupListContainer from './groups/group_list_container';
+import Footer from './footer';
+
+
 const App = () => (
   <div>
     <Switch>
@@ -14,6 +17,7 @@ const App = () => (
       <AuthRoute path="/signup" component={AuthRender} />
       <ProtectedRoute path="/polls" component={GroupListContainer} />
     </Switch>
+    <Footer />
   </div>
 );
 

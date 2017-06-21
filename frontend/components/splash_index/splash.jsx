@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom'
 const splash = () => {
   return (
     <section className="splash-container">
@@ -10,9 +11,13 @@ const splash = () => {
           <h1>Participation</h1>
         </div>
       </div>
+      <div className = "splashBlock">
+        <h2>Engage your audience or class in real time</h2>
+        <Link className="" to="/signup">Get started</Link>
+      </div>
     </section>
   )
 }
 
 
-export default splash;
+export default withRouter(splash);

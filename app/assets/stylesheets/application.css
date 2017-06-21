@@ -27,3 +27,16 @@
    box-shadow:none;
    border-radius: 0px;
  }
+
+ footer {
+   height: 200px;
+   background: #4f4f4f;
+   color: gray;
+   position: relative;
+   top: 60px;
+   display: flex;
+ }
+
+ footer a {
+   text-decoration: none;
+ }

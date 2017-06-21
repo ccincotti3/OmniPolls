@@ -4,6 +4,7 @@
 }
 
 .marquee {
+  top: 75px;
   background: image-url("home_marquee.jpg");
   background-position: center;
   position: relative;
@@ -35,4 +36,32 @@
   margin: 6.9px 0;
   line-height: 1;
   box-sizing: border-box;
+}
+
+.splashBlock{
+  position: relative;
+  padding: 60px 0;
+  top: 50px;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  color: #4f4f4f;
+  height: 150px;
+}
+
+.splashBlock h2 {
+  font-size: 36px;
+}
+
+.splashBlock a {
+  transition: background-color 0.2s ease;
+  background: white;
+  border: #fc5d51 1px solid;
+  color: #fc5d51;
+  text-decoration: none;
+  padding: 8.8px 12px;
+}
+
+.splashBlock a:hover{
+  background-color: #e6e6e6
 }

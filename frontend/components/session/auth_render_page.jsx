@@ -12,7 +12,9 @@ const AuthRender = (props) => {
      }
      return (
        <section>
-         <nav className="header-group"/>
+         <nav className="header-group">
+            <span className= "logo"><i className="fa fa-line-chart"></i></span>
+          </nav>
          <div className="auth-container">
            {form}
          </div>
