@@ -19,7 +19,9 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
 
-  has_many :groups, dependent: :destroy
+  has_many :groups,
+  foreign_key: :author_id,
+  class_name: :Group
 
   has_many :questions,
   through: :groups,
