@@ -1,9 +1,29 @@
+.auth-form label {
+  color: #4f4f4f;
+}
+
+.auth-form h1 {
+  font-size: 32px;
+  color: #4f4f4f;
+}
+
 .auth-form {
-  text-align: left
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  width: 25em;
+  margin-top: 10px;
 }
 
 .auth-form input {
+  margin: 5px 0;
+  margin-bottom: 16px;
+  border: 1px solid rgb(216, 228, 241);
+  padding: 9px;
+  text-align: start;
   width: 100%;
+  flex: 1;
+  box-sizing: border-box;
 }
 
 .auth-form button {
@@ -11,10 +31,17 @@
   background-color: #fc5d51;
   color: white;
   padding: 8.8px 12px;
+  display: inline-block;
   font-size: 16px;
 }
 
+.auth-form span {
+  display: block;
+}
+
 .auth-container {
-  margin-left: 30%;
-  margin-right: 30%;
+  display: flex;
+  flex: center;
+  justify-content: center;
+  flex-direction: row;
 }
