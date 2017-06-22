@@ -23,6 +23,7 @@ const splash = (props) => {
       </div>
       <div className='bottom-box'>
         <footer className = "footer-splash"></footer>
+        <div className="leftover-box"></div>
       </div>
     </section>
   )

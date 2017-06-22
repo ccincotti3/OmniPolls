@@ -4,6 +4,13 @@
   height: 100%;
 }
 
+@media screen and (min-height: 800px) {
+    section {
+      max-height: 1050px;
+      overflow: hidden;
+    }
+}
+
 .marquee {
   background: image-url("home_marquee.jpg");
   background-position: center;
@@ -65,19 +72,26 @@
   background-color: #e6e6e6
 }
 
-.footer-splash {
-  background: #4f4f4f;
-  color: gray;
-  flex: 1 1 auto;
-}
-
 .bottom-box{
   display: flex;
-  flex-flow: column;
-  height: 220px;
+  flex-direction: column;
+  height: 500px;
 }
 
-.leftover-box {
-  flex: 0 1 100px;
+.bottom-box>.footer-splash {
+  width: 100%;
+  height: 30%;
+  background: #4f4f4f;
+  color: gray;
+}
+
+
+.bottom-box>.leftover-box {
+  position: relative;
+  width: 100%;
+  height: auto;
+  bottom: 0;
+  flex: 1;
   background-color: #303233;
+
 }
