@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.errorHandling = this.errorHandling.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
   }
 
   handleSubmit(e) {
@@ -41,6 +42,11 @@ class SessionForm extends React.Component {
     this.props.clearErrors()
   }
 
+  guestLogin() {
+    const user = {username: "guest", password:"password"}
+    this.props.logIn({user});
+  }
+
   render() {
     return(
       <div className="auth-form">
@@ -61,6 +67,9 @@ class SessionForm extends React.Component {
           <button type="submit">Log in</button>
         </form>
         <p>Need an account? <Link to="/signup" onClick={this.props.clearErrors}>Create one now</Link></p>
+        <br/>
+        <p>Want to be a guest?</p><br/> <button
+          onClick={this.guestLogin}>Log in as guest</button>
       </div>
     )
 
