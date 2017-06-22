@@ -8,9 +8,10 @@ export const receiveGroup = (group) => ({
   group
 });
 
-export const receiveAllGroups = (groups) => ({
+export const receiveAllGroups = ({groups, questions}) => ({
   type: RECEIVE_ALL_GROUPS,
-  groups
+  groups,
+  questions
 });
 
 export const receiveErrors = (errors) => ({
@@ -33,10 +34,10 @@ export const updateGroup = (group) => dispatch => (
 );
 
 export const fetchGroups = () => dispatch => (
-  APIUtil.fetchGroups().then(groups => (
-    dispatch(receiveAllGroups(groups))
+  APIUtil.fetchGroups().then(obj => (
+    dispatch(receiveAllGroups(obj))
   ), err => (dispatch(receiveErrors(err.responseJSON))
-  ))
+))
 );
 
 export const deleteGroup = (group) => dispatch => (
