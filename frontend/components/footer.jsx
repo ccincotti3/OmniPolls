@@ -6,7 +6,7 @@ const Footer = (props, ownProps) => {
   // if (page === 'login') {
     return (
       <footer className="footer-splash">
-    
+
       </footer>
     )
 }

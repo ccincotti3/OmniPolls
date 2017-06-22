@@ -10,6 +10,8 @@ class SignUpForm extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.update = this.update.bind(this)
+    this.errorHandling = this.errorHandling.bind(this);
+    this.clearErrors = this.clearErrors.bind(this);
   }
 
   handleSubmit(e) {
@@ -22,10 +24,31 @@ class SignUpForm extends React.Component {
     return e => (this.setState({[property]: e.currentTarget.value}))
   }
 
+  errorHandling() {
+    const errors = this.props.errors
+    this.clearErrors()
+    if(errors.length > 0) {
+      return(
+        <div className="signup-errors">
+          <h2>Oops! We couldn't create your account.</h2>
+          <p>There were problems with the following fields:</p>
+          <ul>
+              {errors.map((error, idx) =>
+                <li key={idx}>{error}</li>
+            )}
+        </ul>
+      </div>
+  )
+    }
+  }
+
   render() {
+
+
     return(
       <div className="auth-form">
-        <h1> Sign up </h1>
+        <h1 id="signup-header"> Sign up </h1>
+        {this.errorHandling()}
         <form onSubmit={this.handleSubmit}>
           <label>First Name</label>
           <input type="text"
@@ -50,7 +73,7 @@ class SignUpForm extends React.Component {
             value={this.state.password}
             onChange = {this.update('password')}
             />
-          <button type="submit">Create my account</button>
+          <button type="submit">Create my OmniPolls account</button>
         </form>
       </div>
     )

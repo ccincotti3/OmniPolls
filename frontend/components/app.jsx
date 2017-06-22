@@ -17,7 +17,6 @@ const App = () => (
       <AuthRoute path="/signup" component={AuthRender} />
       <ProtectedRoute path="/polls" component={GroupListContainer} />
     </Switch>
-    <Footer />
   </div>
 );
 

@@ -1,3 +1,28 @@
 // Place all the styles related to the api/Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.signup-errors{
+  background-color: #ff9582;
+  color: white;
+  border: 1px solid #d95347;
+  padding: 7.2px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.signup-errors li {
+  text-decoration: none;
+  padding-top: 7.2px;
+  margin-bottom: 14.4px;
+  font-weight: normal;
+  font-size: 14.4px;
+}
+
+.signup-errors p {
+  margin-bottom: 21.6px;
+}
+
+.signup-errors h2 {
+  margin-bottom: 7px;
+}

@@ -25,6 +25,7 @@ class Greeting extends React.Component {
     const personalGreeting = (currentUser, logOut) => (
       <div className="sticky">
         <nav className="header-group">
+          <Link to="/"><span className= "logo"><i className="fa fa-line-chart"></i> OmniPolls</span></Link>
           <div className="nav-links">
             <Link to="/polls" role="button">My polls</Link>
             <button className="header-button" onClick={logOut}>Log Out</button>
@@ -41,6 +42,7 @@ class Greeting extends React.Component {
       <div>
         {Greeting(this.props)}
         <Splash />
+        <footer className = "footer-splash"></footer>
       </div>
     );
   }

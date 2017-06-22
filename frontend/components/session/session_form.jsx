@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -6,8 +7,9 @@ class SessionForm extends React.Component {
       username: "",
       password: ""
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.update = this.update.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
+    this.errorHandling = this.errorHandling.bind(this);
   }
 
   handleSubmit(e) {
@@ -20,10 +22,26 @@ class SessionForm extends React.Component {
     return e => (this.setState({[property]: e.currentTarget.value}))
   }
 
+  errorHandling() {
+    const errors = this.props.errors
+    if(errors.length > 0) {
+      return(
+        <div className="login-errors">
+          <ul>
+              {errors.map((error, idx) =>
+                <li key={idx}>{error}</li>
+            )}
+          </ul>
+        </div>
+  )
+    }
+  }
+
   render() {
     return(
       <div className="auth-form">
         <h1> Log in </h1>
+        {this.errorHandling()}
         <form onSubmit={this.handleSubmit}>
           <label>Username</label>
           <input type="text"
@@ -38,6 +56,7 @@ class SessionForm extends React.Component {
             /></span>
           <button type="submit">Log in</button>
         </form>
+        <p>Need an account? <Link to="/signup">Create one now</Link></p>
       </div>
     )
 
