@@ -4,7 +4,7 @@ import { clearErrors } from '../../actions/error_actions';
 import SignUpForm from './new_user_form';
 
 const mapStateToProps = ({ errors}, ownProps) => ({
-  errors: errors.errors
+  errors
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -4,9 +4,9 @@ import { fetchGroups, createGroup, deleteGroup, updateGroup }
 import GroupList from './group_list';
 import { allGroups } from '../../reducers/selectors';
 
-const mapStateToProps = (state) => ({
-  groups: allGroups(state.groups),
-  errors: state.errors
+const mapStateToProps = ({groups, errors}) => ({
+  groups: allGroups(groups),
+  errors
 });
 
 const mapDispatchToProps = (dispatch) => ({

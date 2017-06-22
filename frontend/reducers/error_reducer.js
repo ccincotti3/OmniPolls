@@ -1,18 +1,14 @@
 import { RECEIVE_ERRORS, CLEAR_ERRORS } from '../actions/error_actions';
 import merge from 'lodash/merge';
 
-const defaultState = {
-  errors: []
-};
 
-const errorReducer = (state = defaultState, action) => {
+const errorReducer = (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ERRORS:
-      const errors = action.errors;
-      return merge({}, defaultState, { errors });
+      return action.errors;
     case CLEAR_ERRORS:
-      return merge({}, defaultState, { errors: [] });
+      return [];
     default:
     return state;
   }
