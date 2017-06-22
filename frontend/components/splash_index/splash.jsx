@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom'
-const splash = () => {
+const splash = (props) => {
+    let buttonLink;
+    if (Boolean(props.currentUser)) {
+      buttonLink = <Link to="/polls">My polls</Link>
+    } else {
+      buttonLink = <Link to="/signup">Get started</Link>
+    }
   return (
     <section className="splash-container">
       <div className="marquee">
@@ -13,7 +19,10 @@ const splash = () => {
       </div>
       <div className = "splashBlock">
         <h2>Engage your audience or class in real time</h2>
-        <Link className="" to="/signup">Get started</Link>
+        {buttonLink}
+      </div>
+      <div className='bottom-box'>
+        <footer className = "footer-splash"></footer>
       </div>
     </section>
   )

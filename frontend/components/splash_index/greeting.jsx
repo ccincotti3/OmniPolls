@@ -27,7 +27,7 @@ class Greeting extends React.Component {
         <nav className="header-group">
           <Link to="/"><span className= "logo"><i className="fa fa-line-chart"></i> OmniPolls</span></Link>
           <div className="nav-links">
-            <Link to="/polls" role="button">My polls</Link>
+            <Link className="signup-button" to="/polls" role="button">My polls</Link>
             <button className="header-button" onClick={logOut}>Log Out</button>
           </div>
         </nav>
@@ -41,7 +41,7 @@ class Greeting extends React.Component {
     return (
       <div>
         {Greeting(this.props)}
-        <Splash />
+        <Splash currentUser={this.props.currentUser} />
         <footer className = "footer-splash"></footer>
       </div>
     );
