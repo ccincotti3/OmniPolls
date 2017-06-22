@@ -7,7 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 guest = User.create!(first_name: "Guest", last_name: "guest", username: "guest", password: "password")
-debugger
 guest_group1 = Group.create!(title: "Group 1", author_id: guest.id)
 guest_group2 = Group.create!(title: "Group 2", author_id: guest.id)
 guest_group3 = Group.create!(title: "This is a group", author_id: guest.id)
