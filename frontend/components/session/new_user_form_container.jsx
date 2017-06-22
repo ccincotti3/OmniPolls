@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
-import { signUp, clearErrors } from '../../actions/session_actions';
+import { signUp } from '../../actions/session_actions';
+import { clearErrors } from '../../actions/error_actions';
 import SignUpForm from './new_user_form';
 
-const mapStateToProps = ({session}, ownProps) => ({
-  errors: session.errors
+const mapStateToProps = ({ errors}, ownProps) => ({
+  errors: errors.errors
 });
 
 const mapDispatchToProps = (dispatch) => ({

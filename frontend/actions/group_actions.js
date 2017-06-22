@@ -1,7 +1,7 @@
 import * as APIUtil from '../util/group_api_util';
+import { receiveErrors } from './error_actions'
 export const RECEIVE_GROUP = 'RECEIVE_GROUP';
 export const RECEIVE_ALL_GROUPS = 'RECEIVE_ALL_GROUPS';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
 export const receiveGroup = (group) => ({
   type: RECEIVE_GROUP,
@@ -12,11 +12,6 @@ export const receiveAllGroups = ({groups, questions}) => ({
   type: RECEIVE_ALL_GROUPS,
   groups,
   questions
-});
-
-export const receiveErrors = (errors) => ({
-  type: RECEIVE_ERRORS,
-  errors
 });
 
 export const createGroup = (group) => dispatch => (

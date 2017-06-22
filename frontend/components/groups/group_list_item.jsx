@@ -14,10 +14,10 @@ class GroupListItem extends React.Component {
   }
 
   render() {
-    const { title } = this.props.group
-    let questions;
+    const { title, questionIds } = this.props.group
+    let questions = "hey";
     if (this.state.detail) {
-        questions = "Hey";
+        // <QuestionListContainer questionIds={questionIds} />
     }
     return (
       <li className="group-list-item">
