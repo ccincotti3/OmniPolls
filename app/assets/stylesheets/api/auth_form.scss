@@ -4,7 +4,7 @@
 
 .auth-form h1 {
   font-size: 32px;
-  margin-bottom: 25px;
+  margin-bottom: 1px;
 }
 
 #signup-header {
@@ -17,6 +17,10 @@
   font-weight: bold;
   width: 30em;
   margin: 75px 0 0 0;
+}
+
+.auth-form form {
+  margin-top: 25px;
 }
 
 .auth-form input {

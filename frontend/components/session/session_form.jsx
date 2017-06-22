@@ -37,6 +37,10 @@ class SessionForm extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.props.clearErrors()
+  }
+
   render() {
     return(
       <div className="auth-form">
@@ -56,7 +60,7 @@ class SessionForm extends React.Component {
             /></span>
           <button type="submit">Log in</button>
         </form>
-        <p>Need an account? <Link to="/signup">Create one now</Link></p>
+        <p>Need an account? <Link to="/signup" onClick={this.props.clearErrors}>Create one now</Link></p>
       </div>
     )
 

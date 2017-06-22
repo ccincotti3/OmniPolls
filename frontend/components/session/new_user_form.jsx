@@ -11,7 +11,6 @@ class SignUpForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.update = this.update.bind(this)
     this.errorHandling = this.errorHandling.bind(this);
-    this.clearErrors = this.clearErrors.bind(this);
   }
 
   handleSubmit(e) {
@@ -24,9 +23,12 @@ class SignUpForm extends React.Component {
     return e => (this.setState({[property]: e.currentTarget.value}))
   }
 
+  componentDidMount() {
+    this.props.clearErrors()
+  }
+
   errorHandling() {
     const errors = this.props.errors
-    this.clearErrors()
     if(errors.length > 0) {
       return(
         <div className="signup-errors">

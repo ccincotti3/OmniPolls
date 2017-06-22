@@ -1,3 +1,12 @@
 // Place all the styles related to the api/Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.login-errors li{
+  font-weight: normal;
+  font-size: 16px;
+  color: #4f4f4f;
+  padding: 16px;
+  margin: 16px 0;
+  background-color: #fed2ce;
+}
