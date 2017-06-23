@@ -9,7 +9,7 @@ export const createQuestion= (question_params) => {
   return $.ajax({
     method: 'POST',
     url: 'api/questions',
-    data: group_params
+    data: question_params
   });
 };
 

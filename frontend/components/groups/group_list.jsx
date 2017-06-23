@@ -1,5 +1,6 @@
 import React from 'react';
 import GroupListItem from './group_list_item';
+import QuestionFormContainer from '../questions/question_form_container';
 
 class GroupList extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class GroupList extends React.Component {
         <ul className="group-list">
           { groupItems }
         </ul>
+      <QuestionFormContainer groups={groups}/>
       </div>
     )
   }

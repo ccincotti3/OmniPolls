@@ -3,6 +3,9 @@ export const allGroups = ( groups ) => {
 };
 
 
-// export const questionSelection = ( {questions}, questionIds) => {
-//   return Object.keys(questions)
-// }
+export const questionSelection = ( questions, ids) => {
+  return ids.map((id) => {
+    return questions[id]
+    }
+  );
+};

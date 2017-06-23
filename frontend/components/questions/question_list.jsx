@@ -6,7 +6,15 @@ class QuestionList extends React.Component {
   }
 
   render() {
-    const { questions, questionIds } = this.props;
-    const questionList =
+    const {questions} = this.props;
+    const listItems = questions.map((el, i) => <li key={i}>{el.body}</li>);
+    listItems;
+    return (
+      <ul className="question-list">
+      {listItems}
+    </ul>
+    )
   }
 }
+
+export default QuestionList;

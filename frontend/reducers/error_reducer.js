@@ -6,7 +6,7 @@ const errorReducer = (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ERRORS:
-      return action.errors;
+      return action.errors || ["error"];
     case CLEAR_ERRORS:
       return [];
     default:

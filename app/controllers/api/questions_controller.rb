@@ -1,7 +1,6 @@
 class Api::QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
-
     if @question.save
       render 'api/questions/show'
     else

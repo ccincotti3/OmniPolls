@@ -16,4 +16,12 @@ class Group < ActiveRecord::Base
 
   has_many :questions, dependent: :destroy
 
+  def questions_array
+    array = []
+    questions.each do |question|
+      array << question.id
+    end
+    return array;
+  end
+
 end

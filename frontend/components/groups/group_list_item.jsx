@@ -1,5 +1,7 @@
 import React from 'react';
-import { CSSTransitionGroup } from 'react-transition-group'
+import { CSSTransitionGroup } from 'react-transition-group';
+import QuestionListContainer from '../questions/question_list_container';
+
 
 class GroupListItem extends React.Component {
   constructor(props) {
@@ -14,17 +16,15 @@ class GroupListItem extends React.Component {
   }
 
   render() {
-    const { title, questionIds } = this.props.group
-    let questions = "hey";
+    const { title } = this.props.group
+    let questions;
     if (this.state.detail) {
-        // <QuestionListContainer questionIds={questionIds} />
+      questions = <QuestionListContainer group={this.props.group} />
     }
     return (
       <li className="group-list-item">
         <div onClick={this.toggleDetail}>{title}</div>
-          <ul className="question-list">
-            {questions}
-          </ul>
+        {questions}
       </li>
     )
   }
