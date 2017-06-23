@@ -5,10 +5,11 @@ const selectionReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case SELECT_ELEMENT:
-      return merge({}, state, action.element)
+      return merge({}, state, {[action.element_type]: { [action.element.id]: action.element} })
     case DESELECT_ELEMENT:
+        debugger
       const newState = merge({}, state);
-      delete newState[action.element];
+      delete newState[action.element_type][action.element.id];
       return newState;
     default:
       return state;

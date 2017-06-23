@@ -6,7 +6,7 @@ import QuestionListContainer from '../questions/question_list_container';
 class GroupListItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { detail: false };
+    this.state = { detail: false, select: true };
     this.toggleDetail = this.toggleDetail.bind(this);
     this.handleCheckbox = this.handleCheckbox.bind(this);
   }
@@ -17,7 +17,14 @@ class GroupListItem extends React.Component {
   }
 
   handleCheckbox(e) {
-    this.props.selectElement(this.props.group, "group");
+    this.setState({
+      ['select']: !this.state.select
+    });
+    if(this.state.select) {
+      this.props.selectElement(this.props.group, "group");
+    } else {
+      this.props.deselectElement(this.props.group, "group");
+    }
   }
 
   render() {
@@ -29,7 +36,7 @@ class GroupListItem extends React.Component {
     return (
       <li className="group-list-item">
         <input
-            name="selected"
+            name="select"
             type="checkbox"
             onChange={this.handleCheckbox} />
         <div onClick={this.toggleDetail}>{title}</div>

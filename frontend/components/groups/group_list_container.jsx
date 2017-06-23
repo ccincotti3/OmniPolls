@@ -15,8 +15,8 @@ const mapDispatchToProps = (dispatch) => ({
   createGroup: (group) => dispatch(createGroup(group)),
   deleteGroup: (group) => dispatch(deleteGroup(group)),
   updateGroup: (group) => dispatch(updateGroup(group)),
-  selectElement: (group) => dispatch(selectElement(group)),
-  deselectElement: (group) => dispatch(deselectElement(group))
+  selectElement: (group, type) => dispatch(selectElement(group, type)),
+  deselectElement: (group, type) => dispatch(deselectElement(group, type))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GroupList);
