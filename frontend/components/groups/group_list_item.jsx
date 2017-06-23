@@ -8,11 +8,16 @@ class GroupListItem extends React.Component {
     super(props);
     this.state = { detail: false };
     this.toggleDetail = this.toggleDetail.bind(this);
+    this.handleCheckbox = this.handleCheckbox.bind(this);
   }
 
   toggleDetail(e) {
     e.preventDefault();
     this.setState( {detail: !this.state.detail} );
+  }
+
+  handleCheckbox(e) {
+    this.props.selectElement(this.props.group, "group");
   }
 
   render() {
@@ -23,6 +28,10 @@ class GroupListItem extends React.Component {
     }
     return (
       <li className="group-list-item">
+        <input
+            name="selected"
+            type="checkbox"
+            onChange={this.handleCheckbox} />
         <div onClick={this.toggleDetail}>{title}</div>
         {questions}
       </li>

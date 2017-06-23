@@ -12,13 +12,15 @@ class GroupList extends React.Component {
   }
 
   render() {
-    const {groups, errors, updateGroup, createGroup} = this.props
+    const {groups, errors, updateGroup, createGroup, selectElement, deselectElement} = this.props
     const groupItems = groups.map(group => (
         <GroupListItem
           key={ group.id }
           group={ group }
           updateGroup={ updateGroup }
           createGroup={ createGroup }
+          selectElement= { selectElement }
+          deselectElement={ deselectElement }
         />
     ));
 

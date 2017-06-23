@@ -18,8 +18,8 @@
     "url": "git+https://github.com/ccincotti3/OmniPolls.git"
   },
   "engines": {
-    "node": "4.1.1",
-    "npm": "2.1.x"
+    "node": "8.1.2",
+    "npm": "5.0.3"
   },
   "keywords": [],
   "author": "",
@@ -35,7 +35,6 @@
     "babel-preset-react": "^6.24.1",
     "lodash": "^4.17.4",
     "react": "^15.6.1",
-    "react-addons-css-transition-group": "^15.6.0",
     "react-dom": "^15.6.1",
     "react-native": "^0.45.1",
     "react-redux": "^5.0.5",

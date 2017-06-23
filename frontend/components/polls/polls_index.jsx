@@ -11,7 +11,6 @@ class PollsIndex extends React.Component{
     return (
       <div className="poll-index-content-wrapper">
         <NavBarContainer />
-        <SideBar />
         <GroupListContainer />
 
       </div>
