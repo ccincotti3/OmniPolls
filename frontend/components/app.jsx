@@ -5,7 +5,7 @@ import NewUserFormContainer from './session/new_user_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import GreetingContainer from './splash_index/greeting_container';
 import AuthRender from './session/auth_render_page';
-import GroupListContainer from './groups/group_list_container';
+import PollsIndex from './polls/polls_index';
 import Footer from './footer';
 
 
@@ -15,7 +15,7 @@ const App = () => (
       <Route exact path="/" component={GreetingContainer} />
       <AuthRoute path="/login" component={AuthRender} />
       <AuthRoute path="/signup" component={AuthRender} />
-      <ProtectedRoute path="/polls" component={GroupListContainer} />
+      <ProtectedRoute path="/polls" component={PollsIndex} />
     </Switch>
   </div>
 );

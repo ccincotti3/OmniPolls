@@ -1,0 +1,89 @@
+.nav-blue {
+  background-color: #203349;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  height: 54px;
+  font-family: "Lucida Grande","Lucida Sans","Lucida Sans Unicode",Sans-serif;
+}
+
+.nav-polls-button, .current-user-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  height: 54px;
+  cursor: pointer;
+  font-family: "Lucida Grande","Lucida Sans","Lucida Sans Unicode",Sans-serif;
+}
+
+.right-side-links{
+}
+
+.nav-polls-button{
+  padding: 0 30px;
+  background-color: #255073;
+  font-size: 12.8px;
+  font-weight: bold;
+}
+
+.current-user-button-container {
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.current-user-button-container:hover {
+  background-color: #3c749e
+}
+
+.right-side-links:hover {
+  background-color: #3c749e
+}
+
+
+.current-user-button {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items:center;
+}
+
+.username{
+  margin-right: 5px;
+  text-transform: uppercase;
+  font-size: 10px;
+  position: relative;
+  top: 1px;
+}
+
+.fa-cog{
+  opacity: 0.5;
+  font-size: 18px;
+}
+
+.nav-drop-down{
+  padding: 10px 8px 10px 10px;
+  width: 100%;
+  position:absolute;
+  top: 54px;
+  color: #255073;
+  border: 1px solid #ededed;
+  border-left: 2px solid #ededed;
+  display: block;
+  font-size: 14px;
+}
+
+.dropdown-element-wrapper {
+  border-left: 2px;
+  width: 100%;
+}
+
+.nav-drop-down:hover{
+  border-left-color: #203349;
+  background-color: #e9eff4;
+}
+
+.nav-drop-down{
+  cursor: pointer;
+}
