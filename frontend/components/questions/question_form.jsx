@@ -62,11 +62,14 @@ class QuestionForm extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <div className="modal-selection-options">
 
-              <div className="selection-multiple-choice" onClick={this.updateQuestionType(1)}>
+              <div className="selection-question-choice" onClick={this.updateQuestionType(1)}>
+                <svg width={90} height={50}>
+                  <rect width={50} height={50} fill="red" />
+                </svg>
                 Multiple Choice
               </div>
 
-              <div className="selection-multiple-choice" onClick={this.updateQuestionType(2)}>
+              <div className="selection-question-choice" onClick={this.updateQuestionType(2)}>
                 Q & A
               </div>
             </div>

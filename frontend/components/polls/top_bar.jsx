@@ -14,8 +14,8 @@ class TopBar extends React.Component {
   render() {
     return (
       <div className="top-bar-wrapper">
-        <button disabled={!this.props.selected} onClick={this.handleDelete}>Delete</button>
-        <button disabled={!this.props.selected}>Edit</button>
+        <button className="top-bar-button" disabled={!this.props.selected} onClick={this.handleDelete}>Delete</button>
+        <button className="top-bar-button" disabled={!this.props.selected}>Edit</button>
       </div>
     )
   }

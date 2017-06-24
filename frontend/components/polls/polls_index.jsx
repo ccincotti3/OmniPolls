@@ -9,32 +9,49 @@ import QuestionFormContainer from '../questions/question_form_container';
 class PollsIndex extends React.Component{
   constructor(props) {
     super(props);
-     this.state = { visible: false };
+     this.state = {
+       visible: false, button_text: "Create", style:{width: "",marginLeft:""}
+        };
   }
 
   show() {
-    this.setState({ visible: true });
+    this.setState({ visible: !this.state.visible, button_text: this.state.button_text === "Create" ? "X" : "Create", style: this.state.style.width === "" ? {width: 40+"px", marginLeft: 60+"px"} : {width: "",marginLeft:""} });
   }
 
   hide() {
-        this.setState({ visible: false });
+        this.setState({ visible: false});
     }
 
   render() {
+    let topBar;
+    if(!this.state.visible){
+      topBar = <TopBarContainer />
+    }
     return (
       <div className="poll-page-container">
-        <div className="poll-index-content-wrapper">
+        <div className="nav-bar-container">
           <NavBarContainer />
-          <TopBarContainer />
-          <aside>
+        </div>
+
+        <div className="poll-index-content-wrapper">
+          <aside className="aside-bar-create">
             <div>
-              <button onClick={this.show.bind(this)}>Create</button>
+              <button
+                className="create-button"
+                onClick={this.show.bind(this)}
+                style={this.state.style}
+                >{this.state.button_text}
+              </button>
             </div>
           </aside>
-          <GroupListContainer />
-          <Rodal visible={this.state.visible} onClose={this.hide.bind(this)}>
-            <QuestionFormContainer />
-          </Rodal>
+          <div className="poll-index-contents">
+            <div className="top-bar">{topBar}</div>
+            <GroupListContainer />
+            <Rodal className = "rodal-container" width={100} height={100} measure="%" visible={this.state.visible} onClose={this.hide.bind(this)} showMask={false}
+            animation="fade" showCloseButton={false} >
+              <QuestionFormContainer />
+            </Rodal>
+          </div>
         </div>
       </div>
     )

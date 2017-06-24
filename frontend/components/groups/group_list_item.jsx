@@ -17,6 +17,9 @@ class GroupListItem extends React.Component {
   }
 
   handleCheckbox(e) {
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+  
     this.setState({
       ['select']: !this.state.select
     });
@@ -35,14 +38,19 @@ class GroupListItem extends React.Component {
       questions = <QuestionListContainer group={this.props.group} />
     }
     return (
-      <li className="group-list-item">
-        <input
+      <div >
+        <li className="group-list-item" onClick={this.toggleDetail}>
+          <input className="checkbox-group"
             name="select"
             type="checkbox"
-            onChange={this.handleCheckbox} />
-        <div onClick={this.toggleDetail}>{title}</div>
+            onClick={(e) => {
+              this.handleCheckbox(e)
+            } } />
+
+          <div className="group-name" >{title}</div>
+        </li>
         {questions}
-      </li>
+      </div>
     )
   }
 }

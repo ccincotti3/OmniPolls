@@ -22,10 +22,11 @@ class QuestionListItem extends React.Component {
 
   render() {
     return (
-      <li>
+      <li className="question-list-item">
         <input
           name="select"
           type="checkbox"
+          selected={this.state.select}
           onChange={this.handleCheckbox} />
         {this.props.question.body}
       </li>

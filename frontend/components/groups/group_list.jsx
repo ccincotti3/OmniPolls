@@ -25,7 +25,7 @@ class GroupList extends React.Component {
     ));
 
     return(
-      <div>
+      <div className="group-list-container">
         <ul className="group-list">
           { groupItems }
         </ul>

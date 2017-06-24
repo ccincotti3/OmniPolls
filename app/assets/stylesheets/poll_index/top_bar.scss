@@ -1,0 +1,20 @@
+.top-bar-button{
+  color: black;
+  background: #e5e5e5;
+  border-radius: 3px;
+  font-size: 12.8px;
+  padding:7.9px 9.6px;
+  margin:0 2px;
+  width: 100%;
+  max-width: 70px;
+}
+
+.top-bar-button:disabled{
+  cursor:not-allowed;
+  color: #8b8c8c;
+}
+
+.top-bar-button:first-child{
+  margin-left: 0;
+  margin-right: 2px;
+}

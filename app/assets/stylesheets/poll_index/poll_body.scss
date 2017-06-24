@@ -1,0 +1,70 @@
+.poll-page-container{
+
+}
+
+.poll-index-content-wrapper{
+  padding: 12.8px;
+  display:flex;
+}
+
+.rodal-container {
+  margin-top: 110px;
+  width: 100%;
+  background-color: #d3d3d3
+}
+.poll-index-contents{
+  width: 87%
+}
+
+.aside-bar-create {
+  width:13%
+}
+
+.create-button {
+  background-color: #fc5d51;
+  padding: 8px 1em;
+  color: white;
+  width: 100%;
+  max-width: 153px;
+  border-radius: 3px;
+  text-align: center;
+  transition:width .2s linear, margin .2s linear;
+}
+
+.group-list-item{
+  width: 100%;
+  color: #203349;
+  cursor: pointer;
+  background: #ccdce8;
+  min-height: 50px;
+  padding: 12.8px;
+  margin: 1px 0;
+  display: block;
+  font-size: 12.8px;
+  box-sizing: border-box;
+}
+
+.checkbox-group{
+  display:inline-block;
+}
+
+.group-name{
+  display: inline-block;
+}
+
+.question-list-item {
+  background-color: #e9eff4;
+  cursor: pointer;
+  padding: 12.8px;
+  margin: 1px 0;
+  font-size: 12.8px;
+}
+
+.question-list{
+  margin-bottom: 15px;
+}
+
+.top-bar{
+  height: 30px;
+  margin-bottom: 12.8px;
+}

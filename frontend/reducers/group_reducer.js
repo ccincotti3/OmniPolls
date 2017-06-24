@@ -12,7 +12,6 @@ const groupReducer = (state = {}, action) => {
       const newGroup = {[action.group.id]: action.group};
       return merge({}, state, newGroup);
     case RECEIVE_QUESTION:
-      debugger
       newState[action.question.group_id].questions_array.push(action.question.id);
       return newState;
     case DELETE_GROUPS:
@@ -20,16 +19,6 @@ const groupReducer = (state = {}, action) => {
         delete newState[id];
       });
       return newState;
-    case DELETE_QUESTIONS:
-    let newQuestionsArray = [];
-    debugger
-
-      action.ids.forEach(id => {
-        if (newState.questions_array.includes(id)) {
-          newQuestionsArray.push(id);
-        }
-      });
-      return merge({}, newState, {['questions_array']: newQuestionsArray});
     default:
       return state;
   }

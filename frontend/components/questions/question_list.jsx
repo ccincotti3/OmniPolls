@@ -8,7 +8,6 @@ class QuestionList extends React.Component {
 
   render() {
     const {questions, selectElement, deselectElement} = this.props;
-    debugger
     const listItems = questions.map((el, i) =>
       <QuestionListItem key={i}
         question={el}
@@ -19,7 +18,7 @@ class QuestionList extends React.Component {
     return (
       <ul className="question-list">
       {listItems}
-    </ul>
+      </ul>
     )
   }
 }
