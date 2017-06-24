@@ -15,11 +15,12 @@ export const deleteQuestions = (ids) => ({
 })
 
 export const createQuestion = (question) => dispatch => (
-  APIUtil.createQuestion(question).then(question => (
-    dispatch(receiveQuestion(question))
+  APIUtil.createQuestion(question).then(question => {
+    dispatch(receiveQuestion(question));
+    window.location.href = `/#/polls/${question.id}`;
+  }
   ), err => (dispatch(receiveErrors(err.responseJSON))
-  ))
-);
+));
 
 export const updateQuestion = (question) => dispatch => (
   APIUtil.updateQuestion(question).then(question => (

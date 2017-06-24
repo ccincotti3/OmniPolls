@@ -29,7 +29,6 @@ class GroupList extends React.Component {
         <ul className="group-list">
           { groupItems }
         </ul>
-      <QuestionFormContainer groups={groups}/>
       </div>
     )
   }

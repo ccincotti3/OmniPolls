@@ -1,5 +1,6 @@
 import React from 'react';
 import merge from 'lodash/merge';
+import { withRouter, Redirect } from 'react-router-dom'
 
 class QuestionForm extends React.Component {
   constructor(props){
@@ -41,6 +42,7 @@ class QuestionForm extends React.Component {
 
 
   render(){
+
     let responseList = [];
     for(let i = 0; i < this.state.responseCount; i++) {
         responseList.push(
@@ -99,4 +101,4 @@ class QuestionForm extends React.Component {
   }
 }
 
-export default QuestionForm;
+export default withRouter(QuestionForm);
