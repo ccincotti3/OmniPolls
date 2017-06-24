@@ -3,9 +3,10 @@ export const allGroups = ( groups ) => {
 };
 
 
+
 export const questionSelection = ( questions, ids) => {
   return ids.map((id) => {
-    return questions[id]
+    return questions[id];
     }
   );
 };

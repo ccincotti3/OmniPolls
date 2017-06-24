@@ -21,9 +21,10 @@ class GroupListItem extends React.Component {
       ['select']: !this.state.select
     });
     if(this.state.select) {
-      this.props.selectElement(this.props.group, "group");
+      this.props.selectElement(this.props.group, "groups");
+
     } else {
-      this.props.deselectElement(this.props.group, "group");
+      this.props.deselectElement(this.props.group, "groups");
     }
   }
 

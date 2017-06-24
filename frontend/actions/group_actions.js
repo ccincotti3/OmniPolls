@@ -2,6 +2,7 @@ import * as APIUtil from '../util/group_api_util';
 import { receiveErrors } from './error_actions'
 export const RECEIVE_GROUP = 'RECEIVE_GROUP';
 export const RECEIVE_ALL_GROUPS = 'RECEIVE_ALL_GROUPS';
+export const DELETE_GROUPS = 'DELETE_GROUPS';
 
 export const receiveGroup = (group) => ({
   type: RECEIVE_GROUP,
@@ -13,6 +14,11 @@ export const receiveAllGroups = ({groups, questions}) => ({
   groups,
   questions
 });
+
+export const deleteGroups = (ids) => ({
+    type: DELETE_GROUPS,
+    ids
+})
 
 export const createGroup = (group) => dispatch => (
   APIUtil.createGroup(group).then(group => (
@@ -36,8 +42,8 @@ export const fetchGroups = () => dispatch => (
 );
 
 export const deleteGroup = (group) => dispatch => (
-  APIUtil.deleteGroup(group).then(group => (
-    dispatch(receiveGroup(group))
+  APIUtil.deleteGroup(group).then(obj => (
+    dispatch(deleteGroups(obj))
   ), err => (dispatch(receiveErrors(err.responseJSON))
   ))
 );

@@ -9,9 +9,10 @@ class Api::QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:id])
-    @question.delete
-    render 'api/questions/show'
+    @questions = Question.where(id: params[:id].split(","))
+    @questions.destroy_all
+
+    render json: params[:id].split(",")
   end
 
   def update

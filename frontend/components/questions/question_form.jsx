@@ -11,7 +11,8 @@ class QuestionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleButton() {
+  handleButton(e) {
+    e.preventDefault();
     this.setState({['responseCount']: this.state.responseCount + 1,
       ['possible_responses']:
       merge({}, this.state.possible_responses, {[this.state.responseCount]: '' } )
@@ -83,6 +84,7 @@ class QuestionForm extends React.Component {
             <div className="component-activity-creator">
               <div className="group-selector"></div>
                 <select value={this.state.group_id} onChange={this.update("group_id")}>
+                  <option disabled="true">Select a group</option>
                   {groupSelect}
                 </select>
               <div className="creator-actions"></div>

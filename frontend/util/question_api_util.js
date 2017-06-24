@@ -21,9 +21,9 @@ export const updateQuestion = (question) => {
   });
 };
 
-export const deleteQuestion= (question) => {
+export const deleteQuestion= (ids) => {
   return $.ajax({
     method: 'DELETE',
-    url: `api/questions/${question.id}`,
+    url: `api/questions/${ids}`,
   });
 };

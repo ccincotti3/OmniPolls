@@ -19,9 +19,9 @@ class Api::GroupsController < ApplicationController
   end
 
   def destroy
-    @group = Group.find(params[:group][:id])
-    @group.delete
-    render 'api/groups/show'
+    @groups = Group.where(id: params[:id].split(","))
+    @groups.delete_all
+    render json: params[:id].split(",")
   end
 
   def update

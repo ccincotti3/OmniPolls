@@ -1,11 +1,18 @@
 import * as APIUtil from '../util/question_api_util';
 export const RECEIVE_QUESTION = 'RECEIVE_QUESTION';
-import { receiveErrors } from './error_actions'
+export const DELETE_QUESTIONS = 'DELETE_QUESTIONS';
+import { receiveErrors } from './error_actions';
+import { fetchGroups } from './group_actions';
 
 export const receiveQuestion = (question) => ({
   type: RECEIVE_QUESTION,
   question
 });
+
+export const deleteQuestions = (ids) => ({
+    type: DELETE_QUESTIONS,
+    ids
+})
 
 export const createQuestion = (question) => dispatch => (
   APIUtil.createQuestion(question).then(question => (
@@ -22,8 +29,8 @@ export const updateQuestion = (question) => dispatch => (
 );
 
 export const deleteQuestion = (question) => dispatch => (
-  APIUtil.deleteQuestion(question).then(question => (
-    dispatch(receiveQuestion(question))
+  APIUtil.deleteQuestion(question).then(ids => (
+    dispatch(fetchGroups())
   ), err => (dispatch(receiveErrors(err.responseJSON))
-  ))
+))
 );

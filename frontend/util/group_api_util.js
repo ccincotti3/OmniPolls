@@ -21,9 +21,9 @@ export const updateGroup = (group) => {
   });
 };
 
-export const deleteGroup= (group) => {
+export const deleteGroup= (ids) => {
   return $.ajax({
     method: 'DELETE',
-    url: `api/groups/${group.id}`,
+    url: `api/groups/${ids}`,
   });
 };
