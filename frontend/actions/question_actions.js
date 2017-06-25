@@ -1,4 +1,6 @@
 import * as APIUtil from '../util/question_api_util';
+import * as APIUtilResponse from '../util/possible_response_api_util';
+
 export const RECEIVE_NEW_QUESTION = 'RECEIVE_NEW_QUESTION';
 export const RECEIVE_QUESTION = 'RECEIVE_QUESTION';
 export const DELETE_QUESTIONS = 'DELETE_QUESTIONS';
@@ -20,11 +22,13 @@ export const receiveQuestion = (question) => ({
     question
 })
 
-export const createQuestion = (question) => dispatch => (
-  APIUtil.createQuestion(question).then(question => {
-    dispatch(receiveNewQuestion(question));
-    window.location.href = `/#/polls/${question.id}`;
-  }
+export const createQuestion = (question, responses) => dispatch => (
+  APIUtil.createQuestion(question)
+    .then(question => (APIUtilResponse.CreatePossibleResponses(responses, question.id)))
+    .then(question => {
+      dispatch(receiveNewQuestion(question));
+      window.location.href = `/#/polls/${question.id}`;
+    }
   ), err => (dispatch(receiveErrors(err.responseJSON))
 ));
 

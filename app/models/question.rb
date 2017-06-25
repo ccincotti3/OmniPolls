@@ -14,11 +14,21 @@
 class Question < ActiveRecord::Base
   validates :body, :question_type, presence: true
 
-  has_many :responses, dependent: :destroy
+  has_many :possible_responses, dependent: :destroy,
+  foreign_key: :question_id,
+  class_name: :PossibleResponse
 
   belongs_to :group
 
   has_one :author,
   through: :group,
   source: :author
+
+  def possible_responses_array
+    array = []
+    possible_responses.each do | resp |
+      array << resp.id
+    end
+    return array;
+  end
 end

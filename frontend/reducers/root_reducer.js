@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
   groups: GroupReducer,
   questions: QuestionReducer,
   errors: ErrorReducer,
-  selection: SelectionReducer
+  selection: SelectionReducer,
 });
 
 export default rootReducer;

@@ -6,7 +6,11 @@ class QuestionForm extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      body: "", question_type: 1, group_id: 1, possible_responses: {0: '', 1: ''}, responseCount: 2
+      body: "",
+      question_type: 1,
+      group_id: 1,
+      possible_responses: {0: {possible_response_name: ''}, 1: {possible_response_name: ''}},
+      responseCount: 2
     }
     this.handleButton = this.handleButton.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,7 +36,7 @@ class QuestionForm extends React.Component {
   }
 
   updateResponses(i) {
-    return e => (this.setState({['possible_responses']: merge({}, this.state.possible_responses, {[i]: e.target.value } ) }));
+    return e => (this.setState({['possible_responses']: merge({}, this.state.possible_responses, {[i]: {possible_response_name: e.target.value }}  ) }));
   }
 
   updateQuestionType(choice) {
@@ -42,9 +46,7 @@ class QuestionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const question = Object.assign({}, this.state);
-    this.props.createQuestion({question});
-    this.setState({
-      body: "", question_type: "", group_id: 1, possible_responses: {0: '', 1: ''}, responseCount: 2})
+    this.props.createQuestion({question}, question.possible_responses);
   }
 
 
@@ -56,7 +58,7 @@ class QuestionForm extends React.Component {
         <div key={i} className="responses">
           <input key={i} type="text" placeholder={"Response goes here.. "}
             onChange={this.updateResponses(i)}
-            value={this.state.possible_responses[i]}
+            value={this.state.possible_responses[i]['possible_response_name']}
             />
           <button onClick={e => (this.deleteResponse(i))} className="trashcan"><i className="fa fa-trash-o" aria-hidden="true"></i></button>
         </div>

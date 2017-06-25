@@ -10,6 +10,8 @@
 #
 
 class Group < ActiveRecord::Base
+  validates :title, presence: true
+  
   belongs_to :author,
   foreign_key: :author_id,
   class_name: :User
