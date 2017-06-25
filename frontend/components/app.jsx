@@ -7,8 +7,8 @@ import GreetingContainer from './splash_index/greeting_container';
 import AuthRender from './session/auth_render_page';
 import PollsIndex from './polls/polls_index';
 import Footer from './footer';
-import PollsShowContainer from './polls_show_container';
-
+import PollsShowContainer from './polls/polls_show_container';
+import NotFound from './not_found';
 
 
 const App = () => (
@@ -19,6 +19,7 @@ const App = () => (
       <AuthRoute path="/signup" component={AuthRender} />
       <ProtectedRoute exact path="/polls/:id" component={PollsShowContainer} />
       <ProtectedRoute exact path="/polls" component={PollsIndex} />
+      <Route path="*" component={NotFound} />
     </Switch>
   </div>
 );

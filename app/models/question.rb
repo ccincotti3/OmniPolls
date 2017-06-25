@@ -17,4 +17,8 @@ class Question < ActiveRecord::Base
   has_many :responses, dependent: :destroy
 
   belongs_to :group
+
+  has_one :author,
+  through: :group,
+  source: :author
 end

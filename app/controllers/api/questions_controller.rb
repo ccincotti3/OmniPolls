@@ -15,6 +15,15 @@ class Api::QuestionsController < ApplicationController
     render json: params[:id].split(",")
   end
 
+  def show
+    @question = Question.find(params[:id])
+    if @question.author.id == current_user.id
+      render 'api/questions/show'
+    else
+      render json: ["Access Denied"], status: 422
+    end
+  end
+
   def update
     @question = Question.find(params[:id])
 

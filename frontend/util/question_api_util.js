@@ -27,3 +27,10 @@ export const deleteQuestion= (ids) => {
     url: `api/questions/${ids}`,
   });
 };
+
+export const fetchQuestion=(id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/questions/${id}`
+  })
+}
