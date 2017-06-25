@@ -47,7 +47,7 @@ class PollsIndex extends React.Component{
           <div className="poll-index-contents">
             <div className="top-bar">{topBar}</div>
             <GroupListContainer />
-            <Rodal className = "rodal-container" width={100} height={100} measure="%" visible={this.state.visible} onClose={this.hide.bind(this)} showMask={false}
+            <Rodal className = "rodal-container" width={70} height={100} measure="%" visible={this.state.visible} onClose={this.hide.bind(this)} showMask={false}
             animation="fade" showCloseButton={false} >
               <QuestionFormContainer />
             </Rodal>

@@ -1,8 +1,118 @@
 .selection-question-choice{
   width: 90px;
   height: 90px;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
 }
+
+.selection-question-choice:first-child{
+  border-left: none;
+}
+
+.add-answers-button button {
+  background-color: white;
+  margin-top: 10px;
+  color: #60E2DD;
+  font-size: 30px;
+  font-weight: bold;
+  transition: color ease 0.2s, background-color ease 0.2s
+}
+
+.add-answers-button button:active {
+  color: white;
+  background-color:  #60E2DD;
+}
+
+.selection-question-choice:hover{
+  opacity: 50%;
+  background-color: red;
+}
+
+.selection-question-choice:active{
+  background-color: white;
+}
+
 
 .modal-selection-options{
   display: flex;
+  justify-content: center;
+}
+
+.chart-image{
+  display: block;
+  margin: auto;
+}
+
+.modal-question-title {
+  text-align: center;
+}
+
+.modal-question-title input, .modal-answers input, {
+
+    width:  100%;
+    padding: 14px;
+    border: none;
+    font-size: 14px;
+    font-family:  "Source Sans Pro", sans-serif;
+    box-sizing: border-box;
+
+}
+
+.modal-answers input {
+  margin-top: 10px;
+}
+
+.modal-answers {
+  margin-top: 10px;
+}
+
+.edit-inputs{
+  margin: 23px 0;
+  padding: 14px 0;
+  border-bottom: 1px dashed white
+}
+
+.responses {
+  display:flex;
+}
+
+.responses button {
+  padding: 0px 14px 0 14px;
+  font-size: 19px;
+  background-color: white;
+  box-sizing: border-box;
+  color: gray;
+  margin-top: 10px;
+  border-left: 1px #bcbfc4 solid;
+  transition: color ease 0.2s, background-color ease 0.2s
+}
+
+.responses button:active{
+  color: white;
+  background-color: #d95347;
+}
+
+.bottom-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-form-button {
+  background: #6193c5;
+  color: white;
+  padding: 14px 35px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.group-dropdown {
+  padding: 14px;
+  font-size: 14px;
+  background-color: white;
+  width: 100%;
+}
+
+.component-activity-creator {
+  width: 50%;
 }
