@@ -1,10 +1,12 @@
 .poll-page-container{
-
+  height:100%;
 }
 
 .poll-index-content-wrapper{
   padding: 12.8px;
   display:flex;
+  min-height:100vh;
+   position:relative;
 }
 
 .rodal-container {
@@ -41,7 +43,8 @@
   min-height: 50px;
   padding: 12.8px;
   margin: 1px 0;
-  display: block;
+  display: flex;
+  align-items: center;
   font-size: 12.8px;
   box-sizing: border-box;
 }
@@ -52,14 +55,60 @@
 
 .group-name{
   display: inline-block;
+  font-weight: bold;
+  margin: 0 5px;
+  font-family: "Lucida Grande","Lucida Sans","Lucida Sans Unicode",Sans-serif;
 }
 
-.question-list-item {
+.group-name-input{
+  width: 50%;
+}
+
+.group-name-form{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+.cancel-button{
+  color: #fc5d51;
+  background-color: transparent;
+  border: none;
+}
+
+.group-form-submit-button{
+  background-color: #fc5d51;
+  padding: 2px 1em;
+  color: white;
+  border-radius: 3px;
+  margin: 0px 5px;
+}
+
+.question-list-item, .add-question-link{
   background-color: #e9eff4;
   cursor: pointer;
   padding: 12.8px;
-  margin: 1px 0;
+  margin: 5px 0;
   font-size: 12.8px;
+  padding-left: 30px;
+
+}
+
+.question-list-item a {
+  margin-left: 5px;
+}
+
+.add-question-link{
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding-left: 50px;
+}
+
+.add-question-link:hover, .question-list-item a:hover{
+  text-decoration: underline;
+  color: #fc5d51;
 }
 
 .question-list{
@@ -69,4 +118,26 @@
 .top-bar{
   height: 30px;
   margin-bottom: 12.8px;
+}
+
+.fa-caret-right{
+  font-size: 16px;
+  transform: rotate(0deg);
+  transition: transform 0.2s linear;
+  margin: 0 5px;
+}
+
+.fa-caret-right.open{
+  transform: rotate(90deg);
+  transition: transform 0.2s linear;
+}
+
+.bottom-box-index{
+  background: #4f4f4f;
+  height: 30%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
 }

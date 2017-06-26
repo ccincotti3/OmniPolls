@@ -12,6 +12,7 @@ class PollsIndex extends React.Component{
      this.state = {
        visible: false, button_text: "Create", style:{width: "",marginLeft:""}
         };
+      this.show = this.show.bind(this)
   }
 
   show() {
@@ -25,7 +26,7 @@ class PollsIndex extends React.Component{
   render() {
     let topBar;
     if(!this.state.visible){
-      topBar = <TopBarContainer />
+      topBar = <TopBarContainer />;
     }
     return (
       <div className="poll-page-container">
@@ -38,7 +39,7 @@ class PollsIndex extends React.Component{
             <div>
               <button
                 className="create-button"
-                onClick={this.show.bind(this)}
+                onClick={this.show}
                 style={this.state.style}
                 >{this.state.button_text}
               </button>
@@ -46,15 +47,20 @@ class PollsIndex extends React.Component{
           </aside>
           <div className="poll-index-contents">
             <div className="top-bar">{topBar}</div>
-            <GroupListContainer />
+            <GroupListContainer show={this.show} />
             <Rodal className = "rodal-container" width={70} height={100} measure="%" visible={this.state.visible} onClose={this.hide.bind(this)} showMask={false}
             animation="fade" showCloseButton={false} >
               <QuestionFormContainer />
             </Rodal>
           </div>
         </div>
+        <div className='bottom-box-index'>
+          <footer className = "footer-splash"></footer>
+          <div className="leftover-box"></div>
+        </div>
+
       </div>
-    )
+    );
   }
 }
 

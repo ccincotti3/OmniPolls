@@ -5,7 +5,7 @@ import GroupList from './group_list';
 import { allGroups } from '../../reducers/selectors';
 import {selectElement, deselectElement } from '../../actions/selection_actions'
 
-const mapStateToProps = ({groups, errors}) => ({
+const mapStateToProps = ({groups, errors}, ownProps) => ({
   groups: allGroups(groups),
   errors
 });

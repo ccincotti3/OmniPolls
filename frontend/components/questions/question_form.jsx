@@ -1,17 +1,17 @@
 import React from 'react';
 import merge from 'lodash/merge';
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom';
 
 class QuestionForm extends React.Component {
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
       body: "",
       question_type: 1,
       group_id: 0,
       possible_responses: {0: {possible_response_name: ''}, 1: {possible_response_name: ''}},
       responseCount: 2,
-    }
+    };
     this.handleButton = this.handleButton.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.deleteResponse = this.deleteResponse.bind(this);
@@ -22,17 +22,17 @@ class QuestionForm extends React.Component {
     this.setState({['responseCount']: this.state.responseCount + 1,
       ['possible_responses']:
       merge({}, this.state.possible_responses, {[this.state.responseCount]: {possible_response_name: ''} } )
-     })
+    });
   }
 
   deleteResponse(i) {
-    let newState = merge({}, this.state)
-    delete newState.possible_responses[i]
-    this.setState(newState)
+    let newState = merge({}, this.state);
+    delete newState.possible_responses[i];
+    this.setState(newState);
   }
 
   update(property) {
-    return e => (this.setState({[property]: e.target.value}))
+    return e => (this.setState({[property]: e.target.value}));
   }
 
   updateResponses(i) {
@@ -40,7 +40,7 @@ class QuestionForm extends React.Component {
   }
 
   updateQuestionType(choice) {
-    return e => (this.setState({['question_type']: choice}))
+    return e => (this.setState({['question_type']: choice}));
   }
 
   handleSubmit(e) {
@@ -53,7 +53,7 @@ class QuestionForm extends React.Component {
     if (newProps.groups.length > 0) {
       this.setState({
         group_id: newProps.groups[0].id
-      })
+      });
     }
   }
 
@@ -63,7 +63,7 @@ class QuestionForm extends React.Component {
     if(this.props.groups.length === 0){
       return(
         <h1></h1>
-      )
+      );
     }
 
     let responseList = [];
@@ -76,22 +76,22 @@ class QuestionForm extends React.Component {
             />
           <button onClick={e => (this.deleteResponse(i))} className="trashcan"><i className="fa fa-trash-o" aria-hidden="true"></i></button>
         </div>
-      )
+      );
     });
 
     const groupSelect = this.props.groups.map((group,i) =>
         <option key={i} value={group.id}>{group.title}</option>
-      )
+      );
 
     let buttonStyle;
     let buttonStyle2;
     if (this.state.question_type === 1) {
-      buttonStyle = {background:'white'}
-      buttonStyle2 = {background:'gray'}
+      buttonStyle = {background:'white'};
+      buttonStyle2 = {background:'gray'};
     }
     else {
-      buttonStyle = {background: 'gray'}
-      buttonStyle2 = {background: 'white'}
+      buttonStyle = {background: 'gray'};
+      buttonStyle2 = {background: 'white'};
     }
 
     return (
@@ -148,7 +148,7 @@ class QuestionForm extends React.Component {
         </div>
       </div>
 
-    )
+    );
 
   }
 }

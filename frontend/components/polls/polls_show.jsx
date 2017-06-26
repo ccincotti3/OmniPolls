@@ -7,28 +7,29 @@ import NavBarContainer from "./nav_bar_container";
 class PollsShow extends React.Component {
   constructor(props){
     super(props);
-    this.state = { id: this.props.match.params.id}
+    this.state = { id: this.props.match.params.id};
   }
 
   componentDidMount() {
-    this.props.fetchQuestion(this.props.id)
-    this.props.fetchPossibleResponses(this.props.id)
-    this.props.clearErrors()
+    this.props.fetchQuestion(this.props.id);
+    this.props.fetchPossibleResponses(this.props.id);
+    this.props.clearErrors();
   }
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.match.params.id !== this.state.id){
-      this.setState({id: nextProps.match.params.id})
+      this.setState({id: nextProps.match.params.id});
       this.props.clearErrors();
       this.props.fetchQuestion(nextProps.match.params.id);
       this.props.fetchPossibleResponses(nextProps.match.params.id);
     }
+    this.props.fetchPossibleResponses(this.props.id);
   }
 
   renderErrors() {
     return this.props.errors.map((el, i) => {
-      return <h1 key={i}>{el}</h1>
-    })
+      return <h1 key={i}>{el}</h1>;
+    });
   }
 
   render() {
@@ -37,29 +38,33 @@ class PollsShow extends React.Component {
         <div>
           {this.renderErrors()}
         </div>
-      )
+      );
     }
 
     if(this.props.question === undefined) {
       return(
         <h1></h1>
-      )
+      );
     }
 
     const data = [
       { name: 'food', responses: .7, amt: 100, time: 1 },
       { name: 'cosmetic', responses: .3, amt: 100, time: 2 },
-      ]
-
+    ];
+      let totalRespCount = 0;
       let fata = [];
+
+      this.props.responses.forEach((resp, i) => {
+        totalRespCount += resp.response_count;
+      });
 
       this.props.responses.forEach((resp, i) => {
         fata.push(
           {
-            name: resp.possible_response_name, responses: .5, amt: 100, time: 1
+            name: resp.possible_response_name, responses: (resp.response_count) / totalRespCount, amt: 100, time: 1
           }
-        )
-      })
+        );
+      });
 
       const ticks = [
         0, 0.2, 0.4, 0.6, 0.8, 1
@@ -97,7 +102,7 @@ class PollsShow extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
 }

@@ -25,7 +25,7 @@ class Api::GroupsController < ApplicationController
   end
 
   def update
-    @group = Group.find(params[:id])
+    @group = Group.find(params[:group][:id])
 
     if @group.update(group_params)
       render 'api/groups/show'

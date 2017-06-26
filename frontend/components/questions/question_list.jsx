@@ -14,12 +14,13 @@ class QuestionList extends React.Component {
         selectElement={selectElement}
         deselectElement={deselectElement}
         />
-    )
+    );
     return (
       <ul className="question-list">
-      {listItems}
+        {listItems}
+        <button className="add-question-link" onClick={this.props.show} type="text">+ Add a question</button>
       </ul>
-    )
+    );
   }
 }
 

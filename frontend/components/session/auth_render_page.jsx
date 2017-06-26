@@ -6,9 +6,9 @@ const AuthRender = (props) => {
     let form;
 
      if (props.location.pathname.slice(1) === 'login') {
-      form = <SessionFormContainer />
+      form = <SessionFormContainer />;
      } else {
-       form = <NewUserFormContainer />
+       form = <NewUserFormContainer />;
      }
      return (
        <section>
@@ -25,6 +25,6 @@ const AuthRender = (props) => {
            <div className="leftover-box"></div>
          </div>
        </section>
-     )
-   }
+     );
+   };
 export default withRouter(AuthRender);

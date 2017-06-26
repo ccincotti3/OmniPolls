@@ -4,7 +4,7 @@ import QuestionFormContainer from '../questions/question_form_container';
 
 class GroupList extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   componentDidMount() {
@@ -12,7 +12,7 @@ class GroupList extends React.Component {
   }
 
   render() {
-    const {groups, errors, updateGroup, createGroup, selectElement, deselectElement} = this.props
+    const {groups, errors, updateGroup, createGroup, selectElement, deselectElement} = this.props;
     const groupItems = groups.map(group => (
         <GroupListItem
           key={ group.id }
@@ -21,6 +21,7 @@ class GroupList extends React.Component {
           createGroup={ createGroup }
           selectElement= { selectElement }
           deselectElement={ deselectElement }
+          show ={this.props.show}
         />
     ));
 
@@ -30,8 +31,8 @@ class GroupList extends React.Component {
           { groupItems }
         </ul>
       </div>
-    )
+    );
   }
 }
 
-export default GroupList
+export default GroupList;

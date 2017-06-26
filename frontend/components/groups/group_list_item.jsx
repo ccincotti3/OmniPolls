@@ -1,14 +1,18 @@
 import React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 import QuestionListContainer from '../questions/question_list_container';
+import merge from 'lodash/merge';
 
 
 class GroupListItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { detail: false, select: true };
+    this.state = { detail: false, select: true, edit: false, title: this.props.group.title};
     this.toggleDetail = this.toggleDetail.bind(this);
     this.handleCheckbox = this.handleCheckbox.bind(this);
+    this.toggleEdit = this.toggleEdit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
   }
 
   toggleDetail(e) {
@@ -19,7 +23,7 @@ class GroupListItem extends React.Component {
   handleCheckbox(e) {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
-  
+
     this.setState({
       ['select']: !this.state.select
     });
@@ -31,27 +35,69 @@ class GroupListItem extends React.Component {
     }
   }
 
+  toggleEdit(e) {
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+    this.setState({edit: !this.state.edit});
+  }
+
+  update(e) {
+    this.setState({title: e.currentTarget.value});
+  }
+
+  handleSubmit(e) {
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+    const groupParams = merge({}, this.props.group, {title: this.state.title});
+    this.props.updateGroup({group: groupParams});
+    this.setState({edit: false});
+  }
+
   render() {
-    const { title } = this.props.group
+    let title = this.state.title;
     let questions;
+    let iconClassName = 'fa fa-caret-right';
     if (this.state.detail) {
-      questions = <QuestionListContainer group={this.props.group} />
+      questions = <QuestionListContainer show ={this.props.show} group={this.props.group} />;
+      iconClassName = 'fa fa-caret-right open';
     }
+
+    let groupName;
+    let onClickHandling;
+
+    if (!this.state.edit) {
+      groupName = <div className="group-name" onClick={this.toggleEdit}>{title}</div>;
+      onClickHandling = this.toggleDetail;
+    } else {
+      groupName = <form className="group-name-form" onSubmit={this.handleSubmit}>
+                    <input
+                      className="group-name-input"
+                      type="text"
+                      value={this.state.title}
+                      onChange = {this.update}
+                      />
+                    <button type="submit" className="group-form-submit-button">Save</button>
+                    <input className = "cancel-button" type="button" value="Cancel" onClick={this.toggleEdit} />
+                  </form>;
+      onClickHandling = undefined;
+    }
+
     return (
       <div >
-        <li className="group-list-item" onClick={this.toggleDetail}>
+        <li className="group-list-item" onClick={onClickHandling}>
+          <i className={iconClassName}></i>
           <input className="checkbox-group"
             name="select"
             type="checkbox"
             onClick={(e) => {
-              this.handleCheckbox(e)
+              this.handleCheckbox(e);
             } } />
 
-          <div className="group-name" >{title}</div>
+          {groupName}
         </li>
         {questions}
       </div>
-    )
+    );
   }
 }
 
