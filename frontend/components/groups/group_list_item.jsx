@@ -62,6 +62,16 @@ class GroupListItem extends React.Component {
       iconClassName = 'fa fa-caret-right open';
     }
 
+    let questionString;
+      if (this.props.group.questions_array.length === 1) {
+        questionString = "1 Question";
+      } else if (this.props.group.questions_array.length === 0) {
+        questionString = "0 Questions";
+      }
+      else {
+        questionString = this.props.group.questions_array.length + " Questions";
+      }
+
     let groupName;
     let onClickHandling;
     let editButton;
@@ -86,10 +96,10 @@ class GroupListItem extends React.Component {
 
     }
 
-
     return (
       <div >
         <li className="group-list-item" onClick={onClickHandling}>
+          <div className="group-list-left-side">
           <i className={iconClassName}></i>
           <input className="checkbox-group"
             name="select"
@@ -100,6 +110,12 @@ class GroupListItem extends React.Component {
 
           {groupName}
           {editButton}
+        </div>
+          <div className="group-list-right-side">
+            <p className>
+              {questionString}
+            </p>
+          </div>
         </li>
         {questions}
       </div>

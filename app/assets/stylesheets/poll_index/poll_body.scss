@@ -49,10 +49,22 @@
   padding: 12.8px;
   margin: 1px 0;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   font-size: 12.8px;
   box-sizing: border-box;
   transition: filter ease 0.2s
+}
+
+.group-list-right-side{
+  margin-right: 50px;
+}
+
+.group-list-right-side p {
+  font-size: 11px;
+  color: #255073;
+  font-family: "Lucida Grande","Lucida Sans","Lucida Sans Unicode",Sans-serif;
+  font-weight: bold;
 }
 
 .group-list-item:hover{

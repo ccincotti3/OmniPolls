@@ -1,21 +1,21 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import React from 'react';
 class NavBar extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {detail: false}
+    this.state = {detail: false};
     this.handleUsernameClick = this.handleUsernameClick.bind(this);
   }
 
   handleUsernameClick() {
-    this.setState({['detail']: !this.state.detail})
+    this.setState({['detail']: !this.state.detail});
   }
 
   render() {
 
     const logOutDropdown = this.state.detail ?
-      <li className="nav-drop-down" onClick={this.props.logOut}>Log out</li> : ''
+      <li className="nav-drop-down" onClick={this.props.logOut}>Log out</li> : '';
 
     return (
       <div className="nav-blue">
@@ -23,6 +23,7 @@ class NavBar extends React.Component {
           <Link className="nav-polls-button button" to="/polls">Polls</Link>
         </div>
         <div className="center-links">
+            <button><i className="fa fa-line-chart" style={{color: 'white', fontSize: 55+"px"}}></i></button>
         </div>
         <div className="right-side-links">
           <div className="dropdown-element-wrapper">
@@ -38,8 +39,8 @@ class NavBar extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default NavBar
+export default NavBar;
