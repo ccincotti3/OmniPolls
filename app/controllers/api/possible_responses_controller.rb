@@ -1,4 +1,9 @@
 class Api::PossibleResponsesController < ApplicationController
+  def index
+    @possible_responses = PossibleResponse.where(question_id: params[:question_id])
+    render 'api/possible_responses/index'
+  end
+
   def create
     @possible_responses = [];
     @failed = []
@@ -17,7 +22,6 @@ class Api::PossibleResponsesController < ApplicationController
       end
     end
     @question = Question.find(params[:question_id])
-    debugger
     render 'api/questions/show'
   end
 

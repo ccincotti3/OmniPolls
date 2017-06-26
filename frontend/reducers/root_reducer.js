@@ -4,6 +4,7 @@ import GroupReducer from './group_reducer';
 import QuestionReducer from './question_reducer';
 import ErrorReducer from './error_reducer';
 import SelectionReducer from './selection_reducer';
+import PossibleResponseReducer from './possible_response_reducer';
 
 const rootReducer = combineReducers({
   session: SessionReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   questions: QuestionReducer,
   errors: ErrorReducer,
   selection: SelectionReducer,
+  possibleResponses: PossibleResponseReducer,
 });
 
 export default rootReducer;

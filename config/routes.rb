@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resources :groups, except: [:show, :edit, :new]
     resources :questions, only: [:create, :destroy, :update, :show]
-    resources :possible_responses, only: [:create]
+    resources :possible_responses, only: [:create, :index]
   end
 end

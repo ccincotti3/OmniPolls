@@ -1,0 +1,23 @@
+.chart {
+  padding: 20px 20px 4.5em 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chart h1 {
+  text-align: center;
+  font-size: 300%;
+  display: block;
+  padding: 20px;
+  background-color: #255073;
+  color: white;
+}
+
+.chart-container {
+  box-sizing: border-box;
+  padding: 50px;
+  margin: 0 auto;
+  width: 100%;
+  height: 600px;
+}

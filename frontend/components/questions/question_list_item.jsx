@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class QuestionListItem extends React.Component {
 
@@ -28,7 +29,7 @@ class QuestionListItem extends React.Component {
           type="checkbox"
           selected={this.state.select}
           onChange={this.handleCheckbox} />
-        {this.props.question.body}
+        <Link to={'/polls/' + this.props.question.id}>{this.props.question.body}</Link>
       </li>
     )
   }
