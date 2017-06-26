@@ -2,15 +2,13 @@
 #
 # Table name: responses
 #
-#  id          :integer          not null, primary key
-#  question_id :integer          not null
-#  answer      :string           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id                   :integer          not null, primary key
+#  answer               :string           not null
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  possible_response_id :integer          not null
 #
 
 class Response < ActiveRecord::Base
-  validates :answer, presence: true
-
-  belongs_to :question
+  belongs_to :possible_response
 end

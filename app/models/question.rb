@@ -24,6 +24,10 @@ class Question < ActiveRecord::Base
   through: :group,
   source: :author
 
+  has_many :responses,
+  through: :possible_responses,
+  source: :responses
+
   def possible_responses_array
     array = []
     possible_responses.each do | resp |
