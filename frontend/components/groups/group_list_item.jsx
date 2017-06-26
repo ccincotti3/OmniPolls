@@ -64,10 +64,12 @@ class GroupListItem extends React.Component {
 
     let groupName;
     let onClickHandling;
+    let editButton;
 
     if (!this.state.edit) {
       groupName = <div className="group-name" onClick={this.toggleEdit}>{title}</div>;
       onClickHandling = this.toggleDetail;
+      editButton = <button type="text" onClick={this.toggleEdit}><i className="fa fa-pencil" aria-hidden="true"></i></button>;
     } else {
       groupName = <form className="group-name-form" onSubmit={this.handleSubmit}>
                     <input
@@ -80,7 +82,10 @@ class GroupListItem extends React.Component {
                     <input className = "cancel-button" type="button" value="Cancel" onClick={this.toggleEdit} />
                   </form>;
       onClickHandling = undefined;
+
+
     }
+
 
     return (
       <div >
@@ -94,6 +99,7 @@ class GroupListItem extends React.Component {
             } } />
 
           {groupName}
+          {editButton}
         </li>
         {questions}
       </div>

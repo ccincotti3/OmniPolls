@@ -52,6 +52,11 @@
   align-items: center;
   font-size: 12.8px;
   box-sizing: border-box;
+  transition: filter ease 0.2s
+}
+
+.group-list-item:hover{
+   filter: brightness(95%);
 }
 
 .checkbox-group{
@@ -94,10 +99,14 @@
   background-color: #e9eff4;
   cursor: pointer;
   padding: 12.8px;
-  margin: 5px 0;
+  margin: 1px 0;
   font-size: 12.8px;
   padding-left: 30px;
+  transition: filter 0.2s ease;
+}
 
+.question-list-item:hover, .add-question-link:hover{
+  filter: brightness(95%);
 }
 
 .question-list-item a {
