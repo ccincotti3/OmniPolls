@@ -1,12 +1,17 @@
 .poll-page-container{
-  height:100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.poll-page-container.no-scroll {
+  overflow:hidden;
 }
 
 .poll-index-content-wrapper{
   padding: 12.8px;
   display:flex;
-  min-height:100vh;
-   position:relative;
+  height:80vh;
+  position: relative;
 }
 
 .rodal-container {
@@ -133,11 +138,24 @@
 }
 
 .bottom-box-index{
-  background: #4f4f4f;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+}
+.bottom-box-index>.footer-splash {
+  width: 100%;
   height: 30%;
-  position: absolute;
-  right: 0;
+  background: #4f4f4f;
+  color: gray;
+}
+
+
+.bottom-box-index>.leftover-box {
+  position: relative;
+  width: 100%;
+  height: auto;
   bottom: 0;
-  left: 0;
-  padding: 1rem;
+  flex: 1;
+  background-color: #303233;
+
 }

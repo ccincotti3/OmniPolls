@@ -25,11 +25,13 @@ class PollsIndex extends React.Component{
 
   render() {
     let topBar;
+    let pollClass = "poll-page-container no-scroll";
     if(!this.state.visible){
       topBar = <TopBarContainer />;
+      pollClass = "poll-page-container";
     }
     return (
-      <div className="poll-page-container">
+      <div className={pollClass}>
         <div className="nav-bar-container">
           <NavBarContainer />
         </div>
