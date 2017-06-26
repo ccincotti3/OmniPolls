@@ -14,4 +14,8 @@ class PossibleResponse < ActiveRecord::Base
 
   belongs_to :question
   has_many :responses
+  
+  def response_count
+    responses.count
+  end
 end

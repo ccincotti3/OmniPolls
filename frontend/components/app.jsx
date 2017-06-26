@@ -9,6 +9,7 @@ import PollsIndex from './polls/polls_index';
 import Footer from './footer';
 import PollsShowContainer from './polls/polls_show_container';
 import NotFound from './not_found';
+import ParticipantFormContainer from './participant/participant_form_container';
 
 
 const App = () => (
@@ -19,6 +20,7 @@ const App = () => (
       <AuthRoute path="/signup" component={AuthRender} />
       <ProtectedRoute exact path="/polls/:id" component={PollsShowContainer} />
       <ProtectedRoute exact path="/polls" component={PollsIndex} />
+      <Route path="/participant/:question_id" component={ParticipantFormContainer} />
       <Route path="*" component={NotFound} />
     </Switch>
   </div>
