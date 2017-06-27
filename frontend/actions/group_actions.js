@@ -3,6 +3,7 @@ import { receiveErrors } from './error_actions'
 export const RECEIVE_GROUP = 'RECEIVE_GROUP';
 export const RECEIVE_ALL_GROUPS = 'RECEIVE_ALL_GROUPS';
 export const DELETE_GROUPS = 'DELETE_GROUPS';
+export const RECEIVE_UNGROUPED_ID = 'RECEIVE_UNGROUPED_ID';
 
 export const receiveGroup = (group) => ({
   type: RECEIVE_GROUP,
@@ -14,6 +15,11 @@ export const receiveAllGroups = ({groups, questions}) => ({
   groups,
   questions
 });
+
+export const receiveUngroupedId = (id) => ({
+  type: RECEIVE_UNGROUPED_ID,
+  id
+})
 
 export const deleteGroups = (ids) => ({
     type: DELETE_GROUPS,

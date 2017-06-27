@@ -33,7 +33,7 @@ class PollsIndex extends React.Component{
     return (
       <div className={pollClass}>
         <div className="nav-bar-container">
-          <NavBarContainer />
+          <NavBarContainer show={this.show} />
         </div>
 
         <div className="poll-index-content-wrapper">

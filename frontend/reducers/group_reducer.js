@@ -1,4 +1,4 @@
-import { RECEIVE_GROUP, RECEIVE_ALL_GROUPS, DELETE_GROUPS } from '../actions/group_actions';
+import { RECEIVE_GROUP, RECEIVE_ALL_GROUPS, DELETE_GROUPS} from '../actions/group_actions';
 import { RECEIVE_NEW_QUESTION, DELETE_QUESTIONS } from '../actions/question_actions';
 import merge from 'lodash/merge';
 

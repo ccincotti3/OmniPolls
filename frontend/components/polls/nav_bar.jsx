@@ -20,10 +20,11 @@ class NavBar extends React.Component {
     return (
       <div className="nav-blue">
         <div className="left-side-links">
-          <Link className="nav-polls-button button" to="/polls">Polls</Link>
+          <button className="nav-polls-button button" onClick={this.props.show}>+</button>
+          <Link className="nav-polls-button" to="/polls">Polls</Link>
         </div>
         <div className="center-links">
-            <button><i className="fa fa-line-chart" style={{color: 'white', fontSize: 55+"px"}}></i></button>
+            <button><i className="fa fa-line-chart" style={{color: 'white', fontSize: 54+"px"}}></i></button>
         </div>
         <div className="right-side-links">
           <div className="dropdown-element-wrapper">

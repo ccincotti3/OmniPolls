@@ -91,3 +91,18 @@
 .dropdown-element-wrapper ul li {
   z-index: 200;
 }
+
+.left-side-links{
+  display:flex;
+}
+
+.nav-polls-button.button{
+  background-color: #3c749e;
+  font-weight: 600;
+  font-size: 16px;
+  transition: filter 0.2s ease
+}
+
+.nav-polls-button.button:hover{
+  filter: brightness(1.1);
+}

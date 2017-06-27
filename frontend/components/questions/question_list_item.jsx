@@ -22,14 +22,29 @@ class QuestionListItem extends React.Component {
   }
 
   render() {
+    let questionString;
+      if (this.props.question.responses === 1) {
+        questionString = "1 Response";
+      } else if (this.props.question.responses === (0 || undefined)) {
+        questionString = "0 Responses";
+      }
+      else {
+        questionString = this.props.question.responses + " Responses";
+      }
     return (
       <li className="question-list-item">
-        <input
-          name="select"
-          type="checkbox"
-          selected={this.state.select}
-          onChange={this.handleCheckbox} />
-        <Link to={'/polls/' + this.props.question.id}>{this.props.question.body}</Link>
+        <div className="question-list-item-left">
+          <input
+            name="select"
+            type="checkbox"
+            selected={this.state.select}
+            onChange={this.handleCheckbox} />
+          <Link to={'/polls/' + this.props.question.id}>{this.props.question.body}</Link>
+        </div>
+        <div className="question-list-item-right">
+          <button><i className="fa fa-link" aria-hidden="true"></i></button>
+          <p>{questionString}</p>
+        </div>
       </li>
     )
   }

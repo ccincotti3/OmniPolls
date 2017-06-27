@@ -34,7 +34,7 @@ export const createQuestion = (question, responses) => dispatch => (
 
 export const updateQuestion = (question) => dispatch => (
   APIUtil.updateQuestion(question).then(question => (
-    dispatch(receiveQuestion(question))
+    dispatch(fetchGroups())
   ), err => (dispatch(receiveErrors(err.responseJSON))
   ))
 );

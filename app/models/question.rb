@@ -35,4 +35,8 @@ class Question < ActiveRecord::Base
     end
     return array;
   end
+
+  def total_responses
+    responses.count
+  end
 end

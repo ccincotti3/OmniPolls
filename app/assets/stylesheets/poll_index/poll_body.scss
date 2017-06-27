@@ -56,15 +56,20 @@
   transition: filter ease 0.2s
 }
 
-.group-list-right-side{
+.group-list-right-side, .question-list-item-right{
   margin-right: 50px;
 }
 
-.group-list-right-side p {
+.group-list-right-side p, .question-list-item-right p {
   font-size: 11px;
   color: #255073;
   font-family: "Lucida Grande","Lucida Sans","Lucida Sans Unicode",Sans-serif;
   font-weight: bold;
+}
+
+.group-list-left-side {
+  display: flex;
+  align-items: center;
 }
 
 .group-list-item:hover{
@@ -117,12 +122,22 @@
   transition: filter 0.2s ease;
 }
 
+.question-list-item{
+  display: flex;
+  justify-content: space-between;
+}
+
 .question-list-item:hover, .add-question-link:hover{
   filter: brightness(95%);
 }
 
 .question-list-item a {
   margin-left: 5px;
+}
+
+.question-list-item-right{
+  display: flex;
+  align-items: center;
 }
 
 .add-question-link{
