@@ -1,5 +1,6 @@
 import React from 'react';
 import QuestionListItem from './question_list_item';
+import { Draggable } from 'react-drag-and-drop';
 
 class QuestionList extends React.Component {
   constructor(props) {
@@ -9,11 +10,11 @@ class QuestionList extends React.Component {
   render() {
     const {questions, selectElement, deselectElement} = this.props;
     const listItems = questions.map((el, i) =>
-      <QuestionListItem key={i}
+      <Draggable key={i} type="question" data={[el.id]}><QuestionListItem key={i}
         question={el}
         selectElement={selectElement}
         deselectElement={deselectElement}
-        />
+        /></Draggable>
     );
     return (
       <ul className="question-list">

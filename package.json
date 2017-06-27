@@ -36,6 +36,7 @@
     "lodash": "^4.17.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-drag-and-drop": "^2.4.0",
     "react-native": "^0.45.1",
     "react-progressbar.js": "^0.2.0",
     "react-redux": "^5.0.5",

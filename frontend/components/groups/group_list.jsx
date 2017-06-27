@@ -2,6 +2,7 @@ import React from 'react';
 import GroupListItem from './group_list_item';
 import QuestionFormContainer from '../questions/question_form_container';
 
+
 class GroupList extends React.Component {
   constructor(props) {
     super(props);
@@ -31,17 +32,18 @@ class GroupList extends React.Component {
   }
 
   render() {
-    const {groups, errors, updateGroup, createGroup, selectElement, deselectElement} = this.props;
+    const {groups, errors, updateGroup, createGroup, selectElement, deselectElement, updateQuestion} = this.props;
     const groupItems = groups.map(group => (
-        <GroupListItem
-          key={ group.id }
-          group={ group }
-          updateGroup={ updateGroup }
-          createGroup={ createGroup }
-          selectElement= { selectElement }
-          deselectElement={ deselectElement }
-          show ={this.props.show}
-        />
+          <GroupListItem
+            key={ group.id }
+            group={ group }
+            updateGroup={ updateGroup }
+            createGroup={ createGroup }
+            selectElement= { selectElement }
+            deselectElement={ deselectElement }
+            updateQuestion={ updateQuestion }
+            show ={this.props.show}
+          />
     ));
 
     return(

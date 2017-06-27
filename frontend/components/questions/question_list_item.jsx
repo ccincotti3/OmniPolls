@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+
 class QuestionListItem extends React.Component {
 
   constructor(props) {
@@ -46,7 +47,7 @@ class QuestionListItem extends React.Component {
           <p>{questionString}</p>
         </div>
       </li>
-    )
+    );
   }
 }
 

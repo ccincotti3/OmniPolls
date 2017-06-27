@@ -3,7 +3,8 @@ import { fetchGroups, createGroup, deleteGroup, updateGroup, receiveUngroupedId,
   from '../../actions/group_actions';
 import GroupList from './group_list';
 import { allGroups } from '../../reducers/selectors';
-import {selectElement, deselectElement } from '../../actions/selection_actions'
+import {selectElement, deselectElement } from '../../actions/selection_actions';
+import { updateQuestion } from '../../actions/question_actions';
 
 const mapStateToProps = ({groups, errors}, ownProps) => ({
   groups: allGroups(groups),
@@ -18,7 +19,8 @@ const mapDispatchToProps = (dispatch) => ({
   selectElement: (group, type) => dispatch(selectElement(group, type)),
   deselectElement: (group, type) => dispatch(deselectElement(group, type)),
   receiveUngroupedId: (id) => dispatch(receiveUngroupedId(id)),
-  createGroupforGrouping: (group, questions) => dispatch(createGroupforGrouping(group, questions))
+  createGroupforGrouping: (group, questions) => dispatch(createGroupforGrouping(group, questions)),
+  updateQuestion: (question) => dispatch(updateQuestion(question)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GroupList);

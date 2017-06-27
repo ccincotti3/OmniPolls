@@ -2,6 +2,8 @@ import React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 import QuestionListContainer from '../questions/question_list_container';
 import merge from 'lodash/merge';
+import { Droppable } from 'react-drag-and-drop';
+
 
 
 class GroupListItem extends React.Component {
@@ -13,6 +15,9 @@ class GroupListItem extends React.Component {
     this.toggleEdit = this.toggleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.onDrop = this.onDrop.bind(this);
+    this.onDragEnter = this.onDragEnter.bind(this);
+    this.onDragLeave = this.onDragLeave.bind(this);
   }
 
   toggleDetail(e) {
@@ -52,6 +57,18 @@ class GroupListItem extends React.Component {
     this.props.updateGroup({group: groupParams});
     this.setState({edit: false});
   }
+
+  onDrop(e) {
+    const question = {id: e.question[0], group_id: this.props.group.id};
+    this.props.updateQuestion(question);
+  }
+
+  onDragEnter() {
+     this.setState({ detail : true });
+ }
+  onDragLeave() {
+     this.setState({ detail : false });
+ }
 
   render() {
     let title = this.state.title;
@@ -98,7 +115,13 @@ class GroupListItem extends React.Component {
 
     return (
       <div >
-        <li className="group-list-item" onClick={onClickHandling}>
+        <Droppable
+          types={['question']}
+          onDrop={e => this.onDrop(e)}
+          onDragEnter={this.onDragEnter}
+          onDragLeave={this.onDragLeave}
+          >
+          <li className="group-list-item" onClick={onClickHandling}>
           <div className="group-list-left-side">
           <i className={iconClassName}></i>
           <input className="checkbox-group"
@@ -118,6 +141,7 @@ class GroupListItem extends React.Component {
           </div>
         </li>
         {questions}
+      </Droppable>
       </div>
     );
   }
