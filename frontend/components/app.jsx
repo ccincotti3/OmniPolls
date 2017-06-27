@@ -20,7 +20,7 @@ const App = () => (
       <AuthRoute path="/signup" component={AuthRender} />
       <ProtectedRoute exact path="/polls/:id" component={PollsShowContainer} />
       <ProtectedRoute exact path="/polls" component={PollsIndex} />
-      <Route path="/participant/:question_id" component={ParticipantFormContainer} />
+      <Route path="/:username" component={ParticipantFormContainer} />
       <Route path="*" component={NotFound} />
     </Switch>
   </div>

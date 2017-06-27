@@ -7,7 +7,7 @@ import { updateActive } from '../../actions/active_actions';
 
 const mapStateToProps = ({questions, active, session}, ownProps) => ({
   questions: questionSelection(questions, ownProps.group.questions_array),
-  activeId: active.id,
+  activeId: active.question.id || -1,
 });
 
 const mapDispatchToProps = (dispatch) => ({

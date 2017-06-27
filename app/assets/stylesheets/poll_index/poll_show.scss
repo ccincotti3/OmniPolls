@@ -12,6 +12,17 @@
   padding: 20px;
   background-color: #255073;
   color: white;
+  font-family: inherit;
+}
+
+.chart h2 {
+  margin-top: 10px;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.chart h2 strong {
+  font-weight: bold;
 }
 
 .chart-container {

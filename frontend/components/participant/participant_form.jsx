@@ -5,14 +5,21 @@ class ParticipantForm extends React.Component {
     super(props);
     this.state = {
       answered: false,
+      load: false
     };
 
     this.handleChoice = this.handleChoice.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchQuestion(this.props.match.params.question_id);
-    this.props.fetchPossibleResponses(this.props.match.params.question_id);
+    this.props.fetchActive(this.props.match.params.username);
+    this.setState({load: true})
+  }
+
+  componentWillReceiveProps(newProps) {
+    if(this.props.question !== newProps.question) {
+      this.props.fetchPossibleResponses(newProps.question.id);
+    }
   }
 
   handleChoice(id, name) {
@@ -27,10 +34,16 @@ class ParticipantForm extends React.Component {
   }
 
   render(){
+    if (!this.state.load) {
 
-    if (this.props.question===undefined) {
       return(
         <h1></h1>
+      );
+    }
+
+    if (this.props.question.id === -1) {
+      return(
+        <h1>This user has no questions</h1>
       );
     }
 

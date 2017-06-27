@@ -2,7 +2,7 @@ export const fetchActive = (username) => {
   return $.ajax({
     method: 'GET',
     url: 'api/active_polls/0',
-    data: username
+    data: {username}
   });
 };
 

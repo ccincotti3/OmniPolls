@@ -76,9 +76,9 @@ class PollsShow extends React.Component {
     return (
       <div>
         <NavBarContainer />
-
         <div className="chart">
           <h1>{this.props.question.body}</h1>
+          <h2><i className="fa fa-link" aria-hidden="true"></i>  When poll is active, respond at <strong>omnipolls.herokuapp.com/#/{this.props.currentUser}</strong></h2>
           <div className="chart-container">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart

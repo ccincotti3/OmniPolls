@@ -7,11 +7,12 @@ import { clearErrors } from '../../actions/error_actions';
 import { fetchPossibleResponses } from '../../actions/possible_response_actions';
 import { allGroups } from '../../reducers/selectors';
 
-const mapStateToProps = ({questions, errors, possibleResponses}, ownProps) => ({
+const mapStateToProps = ({questions, errors, possibleResponses, session}, ownProps) => ({
   id: ownProps.match.params.id,
   question: questions[ownProps.match.params.id],
   responses: allGroups(possibleResponses),
-  errors
+  errors,
+  currentUser: session.currentUser.username
 });
 
 const mapDispatchToProps = (dispatch) => ({

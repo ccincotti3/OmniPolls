@@ -5,8 +5,8 @@ import * as APIUtil from '../util/active_api_util';
 
 export const receiveActive = (active) => ({
   type: RECEIVE_ACTIVE,
-  questionId: active.question.id,
-  username: active.username
+  question: active.question,
+  username: active.username,
 });
 
 export const clearActive = () => ({
