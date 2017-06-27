@@ -24,13 +24,13 @@ class QuestionListItem extends React.Component {
 
   render() {
     let questionString;
-      if (this.props.question.responses === 1) {
+      if (this.props.question.total_responses === 1) {
         questionString = "1 Response";
-      } else if (this.props.question.responses === (0 || undefined)) {
+      } else if (this.props.question.total_responses === (0 || undefined)) {
         questionString = "0 Responses";
       }
       else {
-        questionString = this.props.question.responses + " Responses";
+        questionString = this.props.question.total_responses + " Responses";
       }
     return (
       <li className="question-list-item">

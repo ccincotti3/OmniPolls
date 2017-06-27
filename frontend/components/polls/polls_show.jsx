@@ -23,7 +23,6 @@ class PollsShow extends React.Component {
       this.props.fetchQuestion(nextProps.match.params.id);
       this.props.fetchPossibleResponses(nextProps.match.params.id);
     }
-    this.props.fetchPossibleResponses(this.props.id);
   }
 
   renderErrors() {

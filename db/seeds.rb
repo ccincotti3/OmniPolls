@@ -9,14 +9,56 @@
 guest = User.create!(first_name: "Guest", last_name: "guest", username: "guest", password: "password")
 guest_group1 = Group.create!(title: "Group 1", author_id: guest.id)
 guest_group2 = Group.create!(title: "Group 2", author_id: guest.id)
+#
+question1 = Question.create!(body: "Hot dogs?", question_type: 1, active: false, group_id: 1)
+question2 = Question.create!(body: "Horses or Ducks?", question_type: 1, active: false, group_id: 1)
+question3 = Question.create!(body: "Would you like fries with that?", question_type: 1, active: false, group_id: 2)
+question4 = Question.create!(body: "Is Pepsi Okay?", question_type: 1, active: false, group_id: 2)
+#
+possible_responses1 = PossibleResponse.create!(possible_response_name: "Love 'em", question_id: question1.id)
+possible_responses2 = PossibleResponse.create!(possible_response_name: "Nope!", question_id: question1.id)
+possible_responses3 = PossibleResponse.create!(possible_response_name: "Horses", question_id: question2.id)
+possible_responses4 = PossibleResponse.create!(possible_response_name: "Ducks", question_id: question2.id)
+possible_responses5 = PossibleResponse.create!(possible_response_name: "NO", question_id: question3.id)
+possible_responses6 = PossibleResponse.create!(possible_response_name: "MAYBE", question_id: question3.id)
+possible_responses7 = PossibleResponse.create!(possible_response_name: "YES", question_id: question3.id)
+possible_responses8 = PossibleResponse.create!(possible_response_name: "YES", question_id: question4.id)
+possible_responses9 = PossibleResponse.create!(possible_response_name: "NO", question_id: question4.id)
+#
+#
+#
+Response.create!(answer: "Love 'em", possible_response_id: possible_responses1.id)
+Response.create!(answer: "Love 'em", possible_response_id: possible_responses1.id)
+Response.create!(answer: "Love 'em", possible_response_id: possible_responses1.id)
+Response.create!(answer: "Nope!", possible_response_id: possible_responses2.id)
+Response.create!(answer: "Nope!", possible_response_id: possible_responses2.id)
+Response.create!(answer: "Horses", possible_response_id: possible_responses3.id)
+Response.create!(answer: "Horses", possible_response_id: possible_responses3.id)
+Response.create!(answer: "Ducks", possible_response_id: possible_responses4.id)
+Response.create!(answer: "Ducks", possible_response_id: possible_responses4.id)
+Response.create!(answer: "NO", possible_response_id: possible_responses5.id)
+Response.create!(answer: "MAYBE", possible_response_id: possible_responses6.id)
+Response.create!(answer: "YES", possible_response_id: possible_responses7.id)
+Response.create!(answer: "YES", possible_response_id: possible_responses8.id)
 
-question_group_1 = Question.create!(body: "Hot dogs?", question_type: 1, active: false, group_id: 1)
-question_group_2 = Question.create!(body: "Horses or Ducks?", question_type: 1, active: false, group_id: 1)
-question_group_3 = Question.create!(body: "Would you like fries with that?", question_type: 1, active: false, group_id: 2)
-question_group_4 = Question.create!(body: "Soup or Salad?", question_type: 1, active: false, group_id: 2)
-question_group_5 = Question.create!(body: "Is Pepsi Okay?", question_type: 1, active: false, group_id: 2)
 
-possible_responses1 = PossibleResponse.create!()
+# question1['total_responses'] = question1.total_responses
+# question2['total_responses'] = question2.total_responses
+# question3['total_responses'] = question3.total_responses
+# question4['total_responses'] = question4.total_responses
+#
+# question1.save
+# question2.save
+# question3.save
+# question4.save
+
+# create_table "responses", force: :cascade do |t|
+#   t.string   "answer",               null: false
+#   t.datetime "created_at",           null: false
+#   t.datetime "updated_at",           null: false
+#   t.integer  "possible_response_id", null: false
+# end
+
 
 
 # create_table "possible_responses", force: :cascade do |t|
