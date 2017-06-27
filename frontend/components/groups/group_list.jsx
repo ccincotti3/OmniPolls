@@ -11,6 +11,7 @@ class GroupList extends React.Component {
 
   componentDidMount() {
     this.props.fetchGroups();
+    this.props.fetchActive();
 
   }
 

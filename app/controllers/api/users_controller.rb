@@ -4,6 +4,7 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       Group.create!(title: "Ungrouped", author_id: @user.id)
+      ActivePoll.create!(user_id: @user.id, question_id: null)
       login(@user)
       render 'api/users/show'
     else

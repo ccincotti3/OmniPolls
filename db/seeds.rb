@@ -25,6 +25,7 @@ possible_responses7 = PossibleResponse.create!(possible_response_name: "YES", qu
 possible_responses8 = PossibleResponse.create!(possible_response_name: "YES", question_id: question4.id)
 possible_responses9 = PossibleResponse.create!(possible_response_name: "NO", question_id: question4.id)
 #
+active_poll = ActivePoll.create!(user_id: guest.id)
 #
 #
 Response.create!(answer: "Love 'em", possible_response_id: possible_responses1.id)

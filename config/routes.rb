@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :questions, only: [:create, :destroy, :update, :show]
     resources :possible_responses, only: [:create, :index]
     resources :responses, only: [:create, :update, :destroy]
+    resources :active_polls, only: [:create, :show, :update]
   end
 end

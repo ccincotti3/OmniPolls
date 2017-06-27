@@ -8,12 +8,15 @@ class QuestionList extends React.Component {
 }
 
   render() {
-    const {questions, selectElement, deselectElement} = this.props;
+    const {questions, selectElement, deselectElement, updateQuestion, updateActive, activeId} = this.props;
     const listItems = questions.map((el, i) =>
       <Draggable key={i} type="question" data={[el.id]}><QuestionListItem key={i}
         question={el}
         selectElement={selectElement}
         deselectElement={deselectElement}
+        updateActive = {updateActive}
+        updateQuestion = { updateQuestion }
+        active = {Boolean(el.id === activeId)}
         /></Draggable>
     );
     return (

@@ -28,6 +28,8 @@ class Question < ActiveRecord::Base
   through: :possible_responses,
   source: :responses
 
+  has_many :active_polls
+
   def possible_responses_array
     array = []
     possible_responses.each do | resp |

@@ -27,6 +27,8 @@ class User < ActiveRecord::Base
   through: :groups,
   source: :questions
 
+  has_many :active_polls, dependent: :destroy
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)
