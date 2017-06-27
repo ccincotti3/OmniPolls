@@ -5,7 +5,7 @@ import QuestionFormContainer from '../questions/question_form_container';
 class GroupList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {ungrouped_id: 0}
+    this.state = {ungrouped_id: 0};
   }
 
   componentDidMount() {
@@ -20,14 +20,13 @@ class GroupList extends React.Component {
       if (group.title === "Ungrouped") {
         flag = true;
         if (oldId !== group.id) {
-          this.setState({ungrouped_id: group.id})
-          this.props.receiveUngroupedId(group.id)
+          this.setState({ungrouped_id: group.id});
+          this.props.receiveUngroupedId(group.id);
         }
       }
-    })
+    });
     if (!flag) {
-      this.props.createGroup({group: {title: "Ungrouped", author_id: ownProps.groups[1].author_id}})
-      this.setState({ungrouped_id: group.id})
+      this.props.createGroup({group: {title: "Ungrouped", author_id: ownProps.groups[1].author_id}});
     }
   }
 

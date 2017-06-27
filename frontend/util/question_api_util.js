@@ -17,7 +17,7 @@ export const updateQuestion = (question) => {
   return $.ajax({
     method: 'PATCH',
     url: `api/questions/${question.id}`,
-    data: question
+    data: {question}
   });
 };
 
@@ -32,5 +32,5 @@ export const fetchQuestion=(id) => {
   return $.ajax({
     method: 'GET',
     url: `api/questions/${id}`
-  })
-}
+  });
+};

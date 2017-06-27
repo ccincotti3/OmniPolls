@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchGroups, createGroup, deleteGroup, updateGroup, receiveUngroupedId }
+import { fetchGroups, createGroup, deleteGroup, updateGroup, receiveUngroupedId, createGroupforGrouping }
   from '../../actions/group_actions';
 import GroupList from './group_list';
 import { allGroups } from '../../reducers/selectors';
@@ -17,7 +17,8 @@ const mapDispatchToProps = (dispatch) => ({
   updateGroup: (group) => dispatch(updateGroup(group)),
   selectElement: (group, type) => dispatch(selectElement(group, type)),
   deselectElement: (group, type) => dispatch(deselectElement(group, type)),
-  receiveUngroupedId: (id) => dispatch(receiveUngroupedId(id))
+  receiveUngroupedId: (id) => dispatch(receiveUngroupedId(id)),
+  createGroupforGrouping: (group, questions) => dispatch(createGroupforGrouping(group, questions))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GroupList);

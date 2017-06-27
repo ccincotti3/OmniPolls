@@ -1,5 +1,6 @@
 import * as APIUtil from '../util/group_api_util';
 import { receiveErrors } from './error_actions'
+import { updateQuestion } from './question_actions'
 export const RECEIVE_GROUP = 'RECEIVE_GROUP';
 export const RECEIVE_ALL_GROUPS = 'RECEIVE_ALL_GROUPS';
 export const DELETE_GROUPS = 'DELETE_GROUPS';
@@ -52,4 +53,20 @@ export const deleteGroup = (group) => dispatch => (
     dispatch(deleteGroups(obj))
   ), err => (dispatch(receiveErrors(err.responseJSON))
   ))
+);
+
+export const createGroupforGrouping = (group, questions) => dispatch => (
+  APIUtil.createGroup(group).then(group => {
+    dispatch(receiveGroup(group))
+
+    questions.forEach((question) => {
+      question['group_id']= group.id
+      dispatch(updateQuestion(question))
+    })
+
+
+  }, err => (dispatch(receiveErrors(err.responseJSON))
+).then(
+  dispatch(fetchGroups())
+))
 );

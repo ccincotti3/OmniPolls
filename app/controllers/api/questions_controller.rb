@@ -25,7 +25,6 @@ class Api::QuestionsController < ApplicationController
   end
 
   def update
-    debugger
     @question = Question.find(params[:question][:id])
 
     if @question.update(question_params)
