@@ -20,6 +20,10 @@ class Api::GroupsController < ApplicationController
 
   def destroy
     @groups = Group.where(id: params[:id].split(","))
+    debugger
+    if (@groups.pluck(:title).include?("Ungrouped") && Group.where(title: "Ungrouped").count == 1)
+      Group.create!(title: "Ungrouped", author_id: current_user.id)
+    end
     @groups.delete_all
     render json: params[:id].split(",")
   end

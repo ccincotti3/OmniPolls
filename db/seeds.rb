@@ -9,6 +9,7 @@
 guest = User.create!(first_name: "Guest", last_name: "guest", username: "guest", password: "password")
 guest_group1 = Group.create!(title: "Group 1", author_id: guest.id)
 guest_group2 = Group.create!(title: "Group 2", author_id: guest.id)
+guest_group3 = Group.create!(title: "Ungrouped", author_id: guest.id)
 #
 question1 = Question.create!(body: "Hot dogs?", question_type: 1, active: false, group_id: 1)
 question2 = Question.create!(body: "Horses or Ducks?", question_type: 1, active: false, group_id: 1)

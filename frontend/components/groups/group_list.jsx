@@ -27,9 +27,7 @@ class GroupList extends React.Component {
         }
       }
     });
-    if (!flag) {
-      this.props.createGroup({group: {title: "Ungrouped", author_id: ownProps.groups[1].author_id}});
-    }
+
   }
 
   render() {
