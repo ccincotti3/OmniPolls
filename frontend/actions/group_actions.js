@@ -52,7 +52,7 @@ export const deleteGroup = (group) => dispatch => (
   APIUtil.deleteGroup(group).then(obj => (
     dispatch(deleteGroups(obj))
   ), err => (dispatch(receiveErrors(err.responseJSON))
-  ))
+)).then(dispatch(fetchGroups()))
 );
 
 export const createGroupforGrouping = (group, questions) => dispatch => (

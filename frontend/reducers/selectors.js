@@ -10,3 +10,11 @@ export const questionSelection = ( questions, ids) => {
     }
   );
 };
+
+export const responseCount = (possibleResponses) => {
+  let count = 0;
+  allGroups(possibleResponses).forEach((resp) => {
+    count += resp.response_count;
+  });
+  return count;
+};

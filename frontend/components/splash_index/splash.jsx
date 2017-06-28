@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom';
 const splash = (props) => {
     let buttonLink;
     if (Boolean(props.currentUser)) {
-      buttonLink = <Link to="/polls">My polls</Link>
+      buttonLink = <Link to="/polls">My polls</Link>;
     } else {
-      buttonLink = <Link to="/signup">Get started</Link>
+      buttonLink = <Link to="/signup">Get started</Link>;
     }
   return (
     <section className="splash-container">
@@ -26,8 +26,8 @@ const splash = (props) => {
         <div className="leftover-box"></div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 
 export default withRouter(splash);

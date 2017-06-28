@@ -1,29 +1,32 @@
 import React from 'react';
+import NavBarContainer from './nav_bar_container';
 
 class ParticipantForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       answered: false,
-      load: false
+      load: false,
+      choice: -1,
     };
 
     this.handleChoice = this.handleChoice.bind(this);
+    this.handleClear = this.handleClear.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchActive(this.props.match.params.username);
-    this.setState({load: true})
   }
 
   componentWillReceiveProps(newProps) {
     if(this.props.question !== newProps.question) {
       this.props.fetchPossibleResponses(newProps.question.id);
+      this.setState({load: true});
     }
   }
 
   handleChoice(id, name) {
-    this.setState({answered: true});
+    this.setState({answered: true, choice: id});
     this.props.createResponse(
       {
         response: {
@@ -31,6 +34,13 @@ class ParticipantForm extends React.Component {
           possible_response_id: id
         }
       });
+    this.props.fetchPossibleResponses(this.props.question.id);
+  }
+
+  handleClear() {
+    this.props.deleteResponse(this.state.choice);
+    this.setState({choice: -1, answered: false});
+    this.props.fetchPossibleResponses(this.props.question.id);
   }
 
   render(){
@@ -41,11 +51,7 @@ class ParticipantForm extends React.Component {
       );
     }
 
-    if (this.props.question.id === -1) {
-      return(
-        <h1>This user has no questions</h1>
-      );
-    }
+
 
     const choices = (
       this.props.choices.map((choice, i) => {
@@ -57,10 +63,23 @@ class ParticipantForm extends React.Component {
             );
         })
       );
+
+      const responseRecorded = this.state.answered ? "Response recorded" : "You can respond once";
+      let clearResponse;
+      if (this.state.answered) {
+        clearResponse = <button onClick={this.handleClear}>Clear Response</button>;
+      }
     return(
       <div>
-        <h1>{this.props.question.body}</h1>
-        <ul>{choices}</ul>
+        <NavBarContainer/>
+        <section className="participant-main-content">
+          <div className="participant-form">
+            <h1>{this.props.question.body}</h1>
+            <h2>{responseRecorded}</h2>
+            <ul>{choices}</ul>
+            {clearResponse}
+          </div>
+        </section>
       </div>
     );
   }

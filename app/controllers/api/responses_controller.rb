@@ -10,9 +10,13 @@ class Api::ResponsesController < ApplicationController
   end
 
   def destroy
-    @response = Response.find(params[:id])
-    @response.delete
-    render 'api/responses/show'
+    @response = Response.where(possible_response_id: params[:possible_response_id]).first
+    if @response
+      @response.delete
+      render 'api/responses/show'
+    else
+      render ['Nothing to delete'], status: 422
+    end
   end
 
 

@@ -21,9 +21,10 @@ export const updateResponse = (response) => {
   });
 };
 
-export const deleteResponse = (ids) => {
+export const deleteResponse = (possible_response_id) => {
   return $.ajax({
     method: 'DELETE',
-    url: `api/responses/${ids}`,
+    url: `api/responses/0`,
+    data: {possible_response_id}
   });
 };

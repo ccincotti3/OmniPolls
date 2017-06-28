@@ -45,22 +45,13 @@ class PollsShow extends React.Component {
         <h1></h1>
       );
     }
+      let data = [];
 
-    const data = [
-      { name: 'food', responses: .7, amt: 100, time: 1 },
-      { name: 'cosmetic', responses: .3, amt: 100, time: 2 },
-    ];
-      let totalRespCount = 0;
-      let fata = [];
 
       this.props.responses.forEach((resp, i) => {
-        totalRespCount += resp.response_count;
-      });
-
-      this.props.responses.forEach((resp, i) => {
-        fata.push(
+        data.push(
           {
-            name: resp.possible_response_name, responses: (resp.response_count) / totalRespCount, amt: 100, time: 1
+            name: resp.possible_response_name, responses: (resp.response_count) / this.props.responseCount, amt: 100, time: 1
           }
         );
       });
@@ -80,10 +71,11 @@ class PollsShow extends React.Component {
           <h1>{this.props.question.body}</h1>
           <h2><i className="fa fa-link" aria-hidden="true"></i>  When poll is active, respond at <strong>omnipolls.herokuapp.com/#/{this.props.currentUser}</strong></h2>
           <div className="chart-container">
+            <h1>{this.props.newResponse.body}</h1>
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 layout="vertical"
-                data={fata}
+                data={data}
                 textAnchor="middle"
                 stackOffset="expand"
                 margin={{top: 5, right: 30, left: 20, bottom: 5}}>

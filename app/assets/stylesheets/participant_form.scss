@@ -1,0 +1,80 @@
+.header-group.participant {
+  background-color: black;
+  color: white;
+  position:sticky;
+}
+
+
+.logo.participant {
+  color: white;
+  margin-left: 15px;
+}
+
+.signup-button.participant, .header-button.participant {
+  color: white;
+}
+
+.signup-button.participant {
+  background-color: black;
+  border: none;
+  color: white;
+}
+
+.nav-links.participant a:visited {
+  color: white;
+}
+
+.nav-links.participant a:first-child {
+  color: white;
+}
+
+.nav-links.participant {
+  margin-right: 15px;
+}
+
+
+.participant-main-content {
+background-color: #2e5777;
+height: 100vh;
+}
+
+
+.participant-form h1 {
+font-weight: bold;
+font-size: 20px;
+color: white;
+}
+
+.participant-form {
+  margin: 0 auto;
+  width: 50%;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.participant-form h2 {
+  color: white;
+  font-size: 16px;
+  margin: 10px 0;
+  font-weight: normal;
+}
+
+.participant-form button {
+  padding: 15px;
+  margin: 5px 0;
+  background-color: #ebebeb;
+  color: black;
+  width: 100%;
+  text-align: left;
+  transition: filter 0.2s ease;
+  font-size: 16px;
+}
+
+.participant-form button:hover{
+  filter: brightness(.9);
+}
+
+.participant-form button:disabled{
+  filter: brightness(.9);
+  cursor:not-allowed;
+}
