@@ -3,6 +3,9 @@ class Api::ResponsesController < ApplicationController
   def create
     @response = Response.new(response_params)
     if @response.save
+      Pusher.trigger('response_channel', 'my-event', {
+      message: 'hello world'
+    })
       render 'api/responses/show'
     else
       render json: @response.errors.full_messages, status: 422

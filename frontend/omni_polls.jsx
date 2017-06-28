@@ -9,7 +9,6 @@ window.dispatch = store.dispatch;
 import {fetchGroups} from './actions/group_actions';
 window.fetchGroups = fetchGroups;
 
-// END TEST
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;

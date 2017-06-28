@@ -7,13 +7,33 @@ import NavBarContainer from "./nav_bar_container";
 class PollsShow extends React.Component {
   constructor(props){
     super(props);
-    this.state = { id: this.props.match.params.id};
+    this.state = { id: this.props.match.params.id, got: false};
+    this.fetchPossibleResponses = this.props.fetchPossibleResponses.bind(this);
+    this.handleEvents = this.handleEvents.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchQuestion(this.props.id);
     this.props.fetchPossibleResponses(this.props.id);
     this.props.clearErrors();
+    this.channel.bind('my-event', this.handleEvents);
+  }
+
+  handleEvents(data){
+    this.props.fetchPossibleResponses(this.props.id);
+  }
+
+  componentWillMount() {
+    this.pusher = new Pusher('adbd6f81e6cb6851b188', {
+      encrypted: true
+    });
+
+    this.channel = this.pusher.subscribe('response_channel');
+  }
+
+  componentWillUnmount() {
+    this.channel.unbind();
+    this.pusher.unsubscribe(this.channel);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -71,7 +91,6 @@ class PollsShow extends React.Component {
           <h1>{this.props.question.body}</h1>
           <h2><i className="fa fa-link" aria-hidden="true"></i>  When poll is active, respond at <strong>omnipolls.herokuapp.com/#/{this.props.currentUser}</strong></h2>
           <div className="chart-container">
-            <h1>{this.props.newResponse.body}</h1>
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 layout="vertical"
