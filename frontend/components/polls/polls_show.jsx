@@ -32,9 +32,7 @@ class PollsShow extends React.Component {
     this.channel = this.pusher.subscribe('response_channel');
   }
 
-  componentWillUnmount() {
 
-  }
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.match.params.id !== this.state.id){
@@ -49,6 +47,18 @@ class PollsShow extends React.Component {
     return this.props.errors.map((el, i) => {
       return <h1 key={i}>{el}</h1>;
     });
+  }
+
+  renderToolTip(props) {
+    if (props.payload[0]){
+      return(
+        <div className="tool-tip">
+          <h1>{props.label}</h1>
+          <h2>Total Responses: {props.payload[0].payload.thisResponseCount}</h2>
+          <h2>Percentage: {props.payload[0].value * 100}%</h2>
+        </div>
+        );
+    }
   }
 
   render() {
@@ -71,7 +81,7 @@ class PollsShow extends React.Component {
       this.props.responses.forEach((resp, i) => {
         data.push(
           {
-            name: resp.possible_response_name, responses: (resp.response_count) / this.props.responseCount, amt: 100, time: 1
+            name: resp.possible_response_name, responses: (resp.response_count) / this.props.responseCount, thisResponseCount: resp.response_count, amt: 100, time: 1
           }
         );
       });
@@ -100,7 +110,9 @@ class PollsShow extends React.Component {
                 data={data}
                 textAnchor="middle"
                 stackOffset="expand"
-                margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+                overflow="visible"
+                thisresponses="hi"
+                margin={{top: 5, right: 50, left: 20, bottom: 5}}>
                 <XAxis
                   domain={[0, 1]}
                   type="number"
@@ -111,7 +123,8 @@ class PollsShow extends React.Component {
                   fontSize={20 + "px"}
                   fontWeight="bold"
                   />
-                <YAxis type="category" dataKey="name" stroke="#000" fontSize={20 + "px"} fontWeight="bold" />
+                <Tooltip content={this.renderToolTip}/>
+                <YAxis type="category" dataKey="name" stroke="#000" fontSize={20 + "px"} fontWeight="bold" overflow="visible" />
                 <Bar dataKey="responses" fill="rgb(60, 116, 158)" />
               </BarChart>
             </ResponsiveContainer>
