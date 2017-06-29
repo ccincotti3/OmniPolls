@@ -3,14 +3,15 @@ import { Redirect, withRouter } from 'react-router-dom';
 import { BarChart, Bar, Brush, Cell, CartesianGrid, ReferenceLine, ReferenceDot,
   XAxis, YAxis, Tooltip, Legend, ErrorBar, LabelList, ResponsiveContainer } from 'recharts';
 import NavBarContainer from "./nav_bar_container";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class PollsShow extends React.Component {
   constructor(props){
     super(props);
-    this.state = { id: this.props.match.params.id, got: false};
+    this.state = { id: this.props.match.params.id, got: false,};
     this.fetchPossibleResponses = this.props.fetchPossibleResponses.bind(this);
     this.handleEvents = this.handleEvents.bind(this);
+    this.handleActive = this.handleActive.bind(this);
   }
 
   componentDidMount() {
@@ -18,6 +19,7 @@ class PollsShow extends React.Component {
     this.props.fetchPossibleResponses(this.props.id);
     this.props.clearErrors();
     this.channel.bind('my-event', this.handleEvents);
+    this.props.fetchActive();
   }
 
   handleEvents(data){
@@ -40,6 +42,7 @@ class PollsShow extends React.Component {
       this.props.clearErrors();
       this.props.fetchQuestion(nextProps.match.params.id);
       this.props.fetchPossibleResponses(nextProps.match.params.id);
+      this.props.fetchActive();
     }
   }
 
@@ -55,9 +58,19 @@ class PollsShow extends React.Component {
         <div className="tool-tip">
           <h1>{props.label}</h1>
           <h2>Total Responses: {props.payload[0].payload.thisResponseCount}</h2>
-          <h2>Percentage: {props.payload[0].value * 100}%</h2>
+          <h2>Percentage: {Math.round(props.payload[0].value * 100)}%</h2>
         </div>
         );
+    }
+  }
+
+  handleActive(e) {
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+    if (this.props.id === this.props.activeId) {
+      this.props.updateActive({question_id: null});
+    } else {
+      this.props.updateActive({question_id: this.props.question.id});
     }
   }
 
@@ -94,6 +107,11 @@ class PollsShow extends React.Component {
 	       return `${(decimal * 100).toFixed(fixed)}%`;
        };
 
+    let buttonClassName = "";
+    if (this.props.id === this.props.activeId) {
+      buttonClassName = "active-button";
+    }
+
     return (
       <div>
         <NavBarContainer />
@@ -102,6 +120,9 @@ class PollsShow extends React.Component {
           <h2><i className="fa fa-link" aria-hidden="true"></i>  When poll is active, respond at <strong><Link to={"/" + this.props.currentUser}>omnipolls.herokuapp.com/#/{this.props.currentUser}</Link></strong></h2>
           <h2><strong>OR TEXT</strong> '{this.props.currentUser.toUpperCase()} YourResponseHere' to <strong>+1-609-957-6853</strong></h2>
           <h2><strong>Text answers are CaSe SeNsItIve</strong></h2>
+          <div className="chart-buttons">
+            <button className={buttonClassName} onClick={this.handleActive}><i className="fa fa-link" aria-hidden="true"></i></button>
+          </div>
           <div className="chart-container">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart

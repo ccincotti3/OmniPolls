@@ -4,8 +4,9 @@ import { createQuestion } from '../../actions/question_actions';
 import { createResponses } from '../../actions/possible_response_actions';
 import { allGroups } from '../../reducers/selectors';
 
-const mapStateToProps = ({groups}) => ({
-    groups: allGroups(groups)
+const mapStateToProps = ({groups, errors}) => ({
+    groups: allGroups(groups),
+    errors
 })
 
 

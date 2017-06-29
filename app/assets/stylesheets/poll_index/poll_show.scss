@@ -50,3 +50,20 @@
 .tool-tip h2 {
   font-size: 14px;
 }
+
+.chart-buttons {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.chart-buttons button {
+  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 10px 10px 0 10px;
+}
+
+.active-button {
+  background-color: #b4fca4;
+}

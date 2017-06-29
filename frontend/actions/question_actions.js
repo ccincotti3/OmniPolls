@@ -15,21 +15,22 @@ export const receiveNewQuestion = (question) => ({
 export const deleteQuestions = (ids) => ({
     type: DELETE_QUESTIONS,
     ids
-})
+});
 
 export const receiveQuestion = (question) => ({
     type: RECEIVE_QUESTION,
     question
-})
+});
 
 export const createQuestion = (question, responses) => dispatch => (
   APIUtil.createQuestion(question)
-    .then(question => (APIUtilResponse.CreatePossibleResponses(responses, question.id)))
-    .then(question => {
-      dispatch(receiveNewQuestion(question));
-      window.location.href = `/#/polls/${question.id}`;
+    .then(question => (APIUtilResponse.CreatePossibleResponses(responses, question.id)
+    ), err => (dispatch(receiveErrors(err.responseJSON))))
+      .then(question => {
+        dispatch(receiveNewQuestion(question));
+        window.location.href = `/#/polls/${question.id}`;
     }
-  ), err => (dispatch(receiveErrors(err.responseJSON))
+      ), err => (dispatch(receiveErrors(err.responseJSON))
 ));
 
 export const updateQuestion = (question) => dispatch => (

@@ -24,7 +24,7 @@ class NavBar extends React.Component {
           <Link className="nav-polls-button" to="/polls">Polls</Link>
         </div>
         <div className="center-links">
-            <button><i className="fa fa-line-chart" style={{color: 'white', fontSize: 54+"px"}}></i></button>
+            <Link to="/polls"><button><i className="fa fa-line-chart" style={{color: 'white', fontSize: 54+"px"}}></i></button></Link>
         </div>
         <div className="right-side-links">
           <div className="dropdown-element-wrapper">

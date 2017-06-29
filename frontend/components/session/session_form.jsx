@@ -6,7 +6,7 @@ class SessionForm extends React.Component {
     this.state = {
       username: "",
       password: ""
-    }
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.errorHandling = this.errorHandling.bind(this);
@@ -20,11 +20,11 @@ class SessionForm extends React.Component {
   }
 
   update(property) {
-    return e => (this.setState({[property]: e.currentTarget.value}))
+    return e => (this.setState({[property]: e.currentTarget.value}));
   }
 
   errorHandling() {
-    const errors = this.props.errors
+    const errors = this.props.errors;
     if(errors.length > 0) {
       return(
         <div className="login-errors">
@@ -34,16 +34,16 @@ class SessionForm extends React.Component {
             )}
           </ul>
         </div>
-  )
+  );
     }
   }
 
   componentDidMount() {
-    this.props.clearErrors()
+    this.props.clearErrors();
   }
 
   guestLogin() {
-    const user = {username: "guest", password:"password"}
+    const user = {username: "guest", password:"password"};
     this.props.logIn({user});
   }
 
@@ -71,7 +71,7 @@ class SessionForm extends React.Component {
         <p>Want to be a guest?</p><br/> <button
           onClick={this.guestLogin}>Log in as guest</button>
       </div>
-    )
+    );
 
 }
 

@@ -57,6 +57,21 @@ class QuestionForm extends React.Component {
     }
   }
 
+  errorHandling() {
+    const errors = this.props.errors;
+    if(errors.length > 0) {
+      return(
+        <div className="login-errors">
+          <ul>
+              {errors.map((error, idx) =>
+                <li key={idx}>{error}</li>
+            )}
+          </ul>
+        </div>
+  );
+    }
+  }
+
 
   render(){
 
@@ -119,6 +134,7 @@ class QuestionForm extends React.Component {
             </div>
 
             <div className="edit-inputs">
+              {this.errorHandling()}
               <div className="modal-question-title">
                 <input type="text" placeholder="Question" onChange={this.update("body")} value={this.state.body} />
               </div>
