@@ -25,9 +25,12 @@ class ParticipantForm extends React.Component {
   }
 
   componentDidMount() {
-    const myStorage = JSON.parse(localStorage[('answerStorage')]);
+    let myStorage;
+    if(localStorage[('answerStorage')]) {
+      myStorage = JSON.parse(localStorage[('answerStorage')]);
+    }
     if(myStorage) {
-      this.setState({answered: myStorage['answered'], choice:myStorage['answer']})
+      this.setState({answered: myStorage['answered'], choice:myStorage['answer']});
     }
     this.channel.bind('new-active', this.handleEvents);
   }
@@ -40,9 +43,6 @@ class ParticipantForm extends React.Component {
   }
 
   componentWillUnmount() {
-    debugger
-    this.pusher.unsubscribe('response-channel');
-    this.channel.unbind();
   }
 
   handleEvents() {
@@ -83,8 +83,12 @@ class ParticipantForm extends React.Component {
 
     const choices = (
       this.props.choices.map((choice, i) => {
+        let className="";
+        if (this.state.choice === choice.id) {
+          className="participant-form selected"
+        }
         return (<li key={i}>
-                <button disabled={this.state.answered} onClick={e => this.handleChoice(choice.id, choice.possible_response_name)}>
+                <button disabled={this.state.answered} className={className} onClick={e => this.handleChoice(choice.id, choice.possible_response_name)}>
                   {choice.possible_response_name}
                 </button>
               </li>
@@ -102,7 +106,7 @@ class ParticipantForm extends React.Component {
 
       let clearResponse;
       if (this.state.answered) {
-        clearResponse = <button className= "deleteResponse" onClick={this.handleClear}>Clear Response</button>;
+        clearResponse = <button className= "delete-response" onClick={this.handleClear}>Clear Response</button>;
       }
     return(
       <div>

@@ -17,7 +17,7 @@ class Api::ResponsesController < ApplicationController
     if @response
       @response.delete
       Pusher.trigger('response_channel', 'my-event', {
-      message: 'hello world'
+      message: 'Response submitted'
     })
       render 'api/responses/show'
     else

@@ -4,6 +4,10 @@
   position:sticky;
 }
 
+.participant-form.selected{
+  background: #98FB98;
+}
+
 
 .logo.participant {
   color: white;
@@ -43,6 +47,7 @@ height: 100vh;
 font-weight: bold;
 font-size: 20px;
 color: white;
+text-align: left;
 }
 
 .participant-form {
@@ -50,6 +55,7 @@ color: white;
   width: 50%;
   padding: 40px;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .participant-form h2 {
@@ -57,6 +63,7 @@ color: white;
   font-size: 16px;
   margin: 10px 0;
   font-weight: normal;
+  text-align: left;
 }
 
 .participant-form button {
@@ -66,9 +73,20 @@ color: white;
   color: black;
   width: 100%;
   text-align: left;
-  transition: filter 0.2s ease;
+  transition: filter 0.2s ease,
+  background-color 0.2s ease;
   font-size: 16px;
 }
+
+.participant-form button.delete-response{
+  width: 200px;
+  background-color: #2e5777;
+  color: white;
+  border: 3px white solid;
+  text-align: center;
+}
+
+
 
 .participant-form button:hover{
   filter: brightness(.9);

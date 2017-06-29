@@ -3,6 +3,7 @@ import { Redirect, withRouter } from 'react-router-dom';
 import { BarChart, Bar, Brush, Cell, CartesianGrid, ReferenceLine, ReferenceDot,
   XAxis, YAxis, Tooltip, Legend, ErrorBar, LabelList, ResponsiveContainer } from 'recharts';
 import NavBarContainer from "./nav_bar_container";
+import { Link } from 'react-router-dom'
 
 class PollsShow extends React.Component {
   constructor(props){
@@ -88,7 +89,9 @@ class PollsShow extends React.Component {
         <NavBarContainer />
         <div className="chart">
           <h1>{this.props.question.body}</h1>
-          <h2><i className="fa fa-link" aria-hidden="true"></i>  When poll is active, respond at <strong>omnipolls.herokuapp.com/#/{this.props.currentUser}</strong></h2>
+          <h2><i className="fa fa-link" aria-hidden="true"></i>  When poll is active, respond at <strong><Link to={"/" + this.props.currentUser}>omnipolls.herokuapp.com/#/{this.props.currentUser}</Link></strong></h2>
+          <h2><strong>OR TEXT</strong> '{this.props.currentUser.toUpperCase()} YourResponseHere' to <strong>+1-609-957-6853</strong></h2>
+          <h2><strong>Text answers are CaSe SeNsItIve</strong></h2>
           <div className="chart-container">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart

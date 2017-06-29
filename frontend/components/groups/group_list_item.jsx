@@ -114,7 +114,7 @@ class GroupListItem extends React.Component {
     }
 
     return (
-      <div >
+      <div className="group-list-item-wrapper">
         <Droppable
           types={['question']}
           onDrop={e => this.onDrop(e)}

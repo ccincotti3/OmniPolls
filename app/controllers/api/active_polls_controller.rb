@@ -14,7 +14,7 @@ class Api::ActivePollsController < ApplicationController
 
     if @active_poll.update(active_polls_params)
       Pusher.trigger('response_channel', 'new-active', {
-      message: 'hello world'
+      message: 'active_polls active'
     })
       render 'api/active_polls/show'
     else
