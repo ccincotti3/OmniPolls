@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     message_body = params["Body"]
     from_number = params["From"]
     body_split = message_body.split(" ")
-    answer = body.split(" ")[1 .. -1].join(" ")
+    answer = message_body.split(" ")[1 .. -1].join(" ")
 
     user = User.find_by_username(body_split[0].downcase)
     question = user.active_polls.first.question
