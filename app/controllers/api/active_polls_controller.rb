@@ -13,6 +13,9 @@ class Api::ActivePollsController < ApplicationController
     @active_poll = ActivePoll.find_by(user_id: current_user.id)
 
     if @active_poll.update(active_polls_params)
+      Pusher.trigger('response_channel', 'new-active', {
+      message: 'hello world'
+    })
       render 'api/active_polls/show'
     else
       render json: @active_poll.errors.full_messages, status: 422

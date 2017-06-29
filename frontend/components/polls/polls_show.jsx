@@ -32,8 +32,7 @@ class PollsShow extends React.Component {
   }
 
   componentWillUnmount() {
-    this.channel.unbind();
-    this.pusher.unsubscribe(this.channel);
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -93,6 +92,7 @@ class PollsShow extends React.Component {
           <div className="chart-container">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
+                className="bar-chart"
                 layout="vertical"
                 data={data}
                 textAnchor="middle"
@@ -104,8 +104,11 @@ class PollsShow extends React.Component {
                   ticks={ticks}
                   tickCount={5}
                   tickFormatter={toPercent}
+                  stroke="#000"
+                  fontSize={20 + "px"}
+                  fontWeight="bold"
                   />
-                <YAxis type="category" dataKey="name"  />
+                <YAxis type="category" dataKey="name" stroke="#000" fontSize={20 + "px"} fontWeight="bold" />
                 <Bar dataKey="responses" fill="rgb(60, 116, 158)" />
               </BarChart>
             </ResponsiveContainer>

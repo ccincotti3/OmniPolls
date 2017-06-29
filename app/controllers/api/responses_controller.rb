@@ -16,6 +16,9 @@ class Api::ResponsesController < ApplicationController
     @response = Response.where(possible_response_id: params[:possible_response_id]).first
     if @response
       @response.delete
+      Pusher.trigger('response_channel', 'my-event', {
+      message: 'hello world'
+    })
       render 'api/responses/show'
     else
       render ['Nothing to delete'], status: 422

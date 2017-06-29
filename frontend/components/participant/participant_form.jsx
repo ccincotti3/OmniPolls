@@ -12,10 +12,24 @@ class ParticipantForm extends React.Component {
 
     this.handleChoice = this.handleChoice.bind(this);
     this.handleClear = this.handleClear.bind(this);
+    this.handleEvents = this.handleEvents.bind(this);
   }
 
   componentWillMount() {
     this.props.fetchActive(this.props.match.params.username);
+    this.pusher = new Pusher('adbd6f81e6cb6851b188', {
+      encrypted: true
+    });
+
+    this.channel = this.pusher.subscribe('response_channel');
+  }
+
+  componentDidMount() {
+    const myStorage = JSON.parse(localStorage[('answerStorage')]);
+    if(myStorage) {
+      this.setState({answered: myStorage['answered'], choice:myStorage['answer']})
+    }
+    this.channel.bind('new-active', this.handleEvents);
   }
 
   componentWillReceiveProps(newProps) {
@@ -23,6 +37,16 @@ class ParticipantForm extends React.Component {
       this.props.fetchPossibleResponses(newProps.question.id);
       this.setState({load: true});
     }
+  }
+
+  componentWillUnmount() {
+    debugger
+    this.pusher.unsubscribe('response-channel');
+    this.channel.unbind();
+  }
+
+  handleEvents() {
+    this.props.fetchActive(this.props.match.params.username);
   }
 
   handleChoice(id, name) {
@@ -34,13 +58,17 @@ class ParticipantForm extends React.Component {
           possible_response_id: id
         }
       });
-    this.props.fetchPossibleResponses(this.props.question.id);
+    const storage = { 'answered': true, 'questionId': this.props.question.id, 'answer': id };
+    localStorage.setItem('answerStorage', JSON.stringify(storage));
   }
 
   handleClear() {
     this.props.deleteResponse(this.state.choice);
     this.setState({choice: -1, answered: false});
-    this.props.fetchPossibleResponses(this.props.question.id);
+
+    const storage = { 'answered': false, 'questionId': this.props.question.id, 'answer': -1 };
+    localStorage.setItem('answerStorage', JSON.stringify(storage));
+
   }
 
   render(){
@@ -63,11 +91,18 @@ class ParticipantForm extends React.Component {
             );
         })
       );
+      let responseRecorded;
+      if (this.props.question.id !== -1 ) {
+        responseRecorded = this.state.answered ? "Response recorded" : "You can respond once";
+      } else {
+        responseRecorded = "As soon as " + this.props.match.params.username + " displays a poll\
+         we'll update this area to give you the voting options.\
+         Easy as pie. Just hang tight, you're ready to go.";
+      }
 
-      const responseRecorded = this.state.answered ? "Response recorded" : "You can respond once";
       let clearResponse;
       if (this.state.answered) {
-        clearResponse = <button onClick={this.handleClear}>Clear Response</button>;
+        clearResponse = <button className= "deleteResponse" onClick={this.handleClear}>Clear Response</button>;
       }
     return(
       <div>
