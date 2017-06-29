@@ -29,19 +29,19 @@
 active_poll = ActivePoll.create!(user_id: 1)
 #
 #
-Response.create!(answer: "Love 'em", possible_response_id: possible_responses1.id)
-Response.create!(answer: "Love 'em", possible_response_id: possible_responses1.id)
-Response.create!(answer: "Love 'em", possible_response_id: possible_responses1.id)
-Response.create!(answer: "Nope!", possible_response_id: possible_responses2.id)
-Response.create!(answer: "Nope!", possible_response_id: possible_responses2.id)
-Response.create!(answer: "Horses", possible_response_id: possible_responses3.id)
-Response.create!(answer: "Horses", possible_response_id: possible_responses3.id)
-Response.create!(answer: "Ducks", possible_response_id: possible_responses4.id)
-Response.create!(answer: "Ducks", possible_response_id: possible_responses4.id)
-Response.create!(answer: "NO", possible_response_id: possible_responses5.id)
-Response.create!(answer: "MAYBE", possible_response_id: possible_responses6.id)
-Response.create!(answer: "YES", possible_response_id: possible_responses7.id)
-Response.create!(answer: "YES", possible_response_id: possible_responses8.id)
+Response.create!(answer: "Love 'em", possible_response_id: 1)
+Response.create!(answer: "Love 'em", possible_response_id: 1)
+Response.create!(answer: "Love 'em", possible_response_id: 1)
+Response.create!(answer: "Nope!", possible_response_id: 2)
+Response.create!(answer: "Nope!", possible_response_id: 2)
+Response.create!(answer: "Horses", possible_response_id: 3)
+Response.create!(answer: "Horses", possible_response_id: 3)
+Response.create!(answer: "Ducks", possible_response_id: 4)
+Response.create!(answer: "Ducks", possible_response_id: 4)
+Response.create!(answer: "NO", possible_response_id: 5)
+Response.create!(answer: "MAYBE", possible_response_id: 6)
+Response.create!(answer: "YES", possible_response_id: 7)
+Response.create!(answer: "YES", possible_response_id: 8)
 
 
 # question1['total_responses'] = question1.total_responses
