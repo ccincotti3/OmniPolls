@@ -9,4 +9,10 @@ Rails.application.routes.draw do
     resources :responses, only: [:create, :update, :destroy]
     resources :active_polls, only: [:create, :show, :update]
   end
+
+  resource :messages do
+    collection do
+      post 'reply'
+    end
+  end
 end
