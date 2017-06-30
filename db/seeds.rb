@@ -14,7 +14,8 @@ guest_group3 = Group.create!(title: "Ungrouped", author_id: guest.id)
 question1 = Question.create!(body: "Hot dogs?", question_type: 1, active: false, group_id: 1)
 question2 = Question.create!(body: "Horses or Ducks?", question_type: 1, active: false, group_id: 1)
 question3 = Question.create!(body: "Would you like fries with that?", question_type: 1, active: false, group_id: 2)
-question4 = Question.create!(body: "Is Pepsi Okay?", question_type: 1, active: false, group_id: 2)
+# question4 = Question.create!(body: "Is Pepsi Okay?", question_type: 1, active: false, group_id: 2)
+question5 = Question.create!(body: "How's this presentation going?", question_type: 1, active: false, group_id: 2)
 #
 possible_responses1 = PossibleResponse.create!(possible_response_name: "Love 'em", question_id: question1.id)
 possible_responses2 = PossibleResponse.create!(possible_response_name: "Nope!", question_id: question1.id)
@@ -25,6 +26,8 @@ possible_responses6 = PossibleResponse.create!(possible_response_name: "MAYBE", 
 possible_responses7 = PossibleResponse.create!(possible_response_name: "YES", question_id: question3.id)
 possible_responses8 = PossibleResponse.create!(possible_response_name: "YES", question_id: question4.id)
 possible_responses9 = PossibleResponse.create!(possible_response_name: "NO", question_id: question4.id)
+possible_responses8 = PossibleResponse.create!(possible_response_name: "Great", question_id: question5.id)
+possible_responses9 = PossibleResponse.create!(possible_response_name: "Poorly", question_id: question5.id)
 #
 active_poll = ActivePoll.create!(user_id: 1)
 #
