@@ -26,8 +26,8 @@ class ParticipantForm extends React.Component {
 
   componentDidMount() {
     let myStorage;
-    if(localStorage[('answerStorage')]) {
-      myStorage = JSON.parse(localStorage[('answerStorage')]);
+    if(localStorage[this.props.question.id.toString()]) {
+      myStorage = JSON.parse(localStorage[this.props.question.id.toString()]);
     }
     if(myStorage) {
       this.setState({answered: myStorage['answered'], choice:myStorage['answer']});
@@ -39,10 +39,20 @@ class ParticipantForm extends React.Component {
     if(this.props.question !== newProps.question) {
       this.props.fetchPossibleResponses(newProps.question.id);
       this.setState({load: true});
+      let myStorage;
+      if(localStorage[newProps.question.id.toString()]) {
+        myStorage = JSON.parse(localStorage[newProps.question.id.toString()]);
+      }
+      if(myStorage) {
+        this.setState({answered: myStorage['answered'], choice:myStorage['answer']});
+      } else {
+        this.setState({answered: false, choice: -1})
+      }
     }
   }
 
   componentWillUnmount() {
+    this.channel.unbind();
   }
 
   handleEvents() {
@@ -59,7 +69,7 @@ class ParticipantForm extends React.Component {
         }
       });
     const storage = { 'answered': true, 'questionId': this.props.question.id, 'answer': id };
-    localStorage.setItem('answerStorage', JSON.stringify(storage));
+    localStorage.setItem(this.props.question.id.toString(), JSON.stringify(storage));
   }
 
   handleClear() {
@@ -67,7 +77,7 @@ class ParticipantForm extends React.Component {
     this.setState({choice: -1, answered: false});
 
     const storage = { 'answered': false, 'questionId': this.props.question.id, 'answer': -1 };
-    localStorage.setItem('answerStorage', JSON.stringify(storage));
+    localStorage.setItem(this.props.question.id.toString(), JSON.stringify(storage));
 
   }
 

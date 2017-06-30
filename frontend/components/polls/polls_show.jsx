@@ -37,13 +37,17 @@ class PollsShow extends React.Component {
 
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.match.params.id !== this.state.id){
-      this.setState({id: nextProps.match.params.id});
+    if(nextProps.id !== this.state.id){
+      this.setState({id: nextProps.id});
       this.props.clearErrors();
-      this.props.fetchQuestion(nextProps.match.params.id);
-      this.props.fetchPossibleResponses(nextProps.match.params.id);
+      this.props.fetchQuestion(nextProps.id);
+      this.props.fetchPossibleResponses(nextProps.id);
       this.props.fetchActive();
     }
+  }
+
+  componentWillUnmount() {
+    this.channel.unbind();
   }
 
   renderErrors() {
