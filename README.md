@@ -31,4 +31,17 @@ The presenter can receive live visual results through implementation of WebSocke
 
 Presenters have the ability to set which poll is active to the audience in real time through a single URL (omnipolls.herokuapp.com/:username), again using WebSockets. Due to Pusher implementation, the audience does not have to refresh the page, or visit a new URL when the presenter changes the active question. If a poll is not active, the audience cannot respond. If no poll is active, the audience is prompted to wait until a poll is active.
 
-Responding to a poll can be completed through visiting a presenters URL, or by text messaging through implementation of Twilio. Pusher and Twilio work well together nicely. When a POST request from Twilio is received and a response is logged in the database, an action to update the live-view is triggered through the Pusher connection. 
+Responding to a poll can be completed through visiting a presenters URL, or by text messaging through implementation of Twilio. Pusher and Twilio work well together nicely. When a POST request from Twilio is received and a response is logged in the database, an action to update the live-view is triggered through the Pusher connection.
+
+## Future Implementation Ideas
+
+To improve upon this project - the future direction of this project would involve the implementation of:
+
+### Search functionality
+
+Giving the presenter the ability to search for questions within their index page would boost functionality, especially when time cannot be wasted searching for a question. This would be completed through implementing a search filter.
+
+
+### More question choices
+
+Keeping true to PollEverywhere, more question types would allow for more interactivity between presenter and audience. Some ideas involve Q & A, Open Ended, and of course the ability to group multiple questions together into a survey.
