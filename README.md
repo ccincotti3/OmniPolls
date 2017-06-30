@@ -22,9 +22,13 @@ The user also has a permanent container named 'Ungrouped'. Similar to PollEveryw
 
 Finally, the user can drag and drop questions into groups through implementation of the react-drag-and-drop library.
 
+![image of group index](doc/pictures/groups.png)
+
 ### Graph Rendering & Live Results
 
 The presenter can receive live visual results through implementation of WebSockets. Utilizing Pusher, when an audience member responds to a poll, an action to update the live-view graph is triggered. The bar graph is rendered through utilizing the Recharts library.
+
+![image of graph](doc/pictures/graph.png)
 
 
 ### Active Polling & Responses
@@ -33,6 +37,8 @@ Presenters have the ability to set which poll is active to the audience in real 
 
 Responding to a poll can be completed through visiting a presenters URL, or by text messaging through implementation of Twilio. Pusher and Twilio work well together nicely. When a POST request from Twilio is received and a response is logged in the database, an action to update the live-view is triggered through the Pusher connection.
 
+![image of form](doc/pictures/form.png)
+
 ## Future Implementation Ideas
 
 To improve upon this project - the future direction of this project would involve the implementation of:
@@ -40,7 +46,6 @@ To improve upon this project - the future direction of this project would involv
 ### Search functionality
 
 Giving the presenter the ability to search for questions within their index page would boost functionality, especially when time cannot be wasted searching for a question. This would be completed through implementing a search filter.
-
 
 ### More question choices
 
