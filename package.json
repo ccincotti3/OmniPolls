@@ -18,7 +18,7 @@
     "url": "git+https://github.com/ccincotti3/OmniPolls.git"
   },
   "engines": {
-    "node": "6.0.7",
+    "node": "6.7.0",
     "npm": "3.10.3"
   },
   "keywords": [],
