@@ -136,7 +136,7 @@ class PollsShow extends React.Component {
               <i className="fa fa-link" aria-hidden="true"></i></button>
           </div>
           <div className="chart-container">
-            <ResponsiveContainer width="95%" height="100%">
+            <ResponsiveContainer width="95%">
               <BarChart
                 className="bar-chart"
                 layout="vertical"
