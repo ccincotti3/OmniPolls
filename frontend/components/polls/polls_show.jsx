@@ -136,7 +136,7 @@ class PollsShow extends React.Component {
               <i className="fa fa-link" aria-hidden="true"></i></button>
           </div>
           <div className="chart-container">
-            // <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 className="bar-chart"
                 layout="vertical"
@@ -144,7 +144,6 @@ class PollsShow extends React.Component {
                 textAnchor="middle"
                 stackOffset="expand"
                 overflow="visible"
-                isAnimationActive="false"
                 thisresponses="hi"
                 margin={{top: 5, right: 50, left: 20, bottom: 5}}>
                 <XAxis
@@ -159,9 +158,10 @@ class PollsShow extends React.Component {
                   />
                 <Tooltip content={this.renderToolTip}/>
                 <YAxis type="category" dataKey="name" stroke="#000" fontSize={20 + "px"} fontWeight="bold" overflow="visible" />
-                <Bar dataKey="responses" fill="rgb(60, 116, 158)" />
+
+                <Bar dataKey="responses" isAnimationActive="false" fill="rgb(60, 116, 158)" />
               </BarChart>
-            // </ResponsiveContainer>
+            </ResponsiveContainer>
           </div>
         </div>
       </div>
