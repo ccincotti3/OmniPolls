@@ -23,7 +23,7 @@ class NavBar extends React.Component {
           <button className="nav-polls-button button" onClick={this.props.show}>+</button>
           <Link className="nav-polls-button" to="/polls">Polls</Link>
         </div>
-        <div className="center-links">
+        <div className="center-links" data-step="1" data-intro="Welcome to OmniPolls!">
             <Link to="/polls"><button><i className="fa fa-line-chart" style={{color: 'white', fontSize: 54+"px"}}></i></button></Link>
         </div>
         <div className="right-side-links">

@@ -4,6 +4,7 @@ import TopBarContainer from './top_bar_container';
 import GroupListContainer from '../groups/group_list_container';
 import Rodal from 'rodal';
 import QuestionFormContainer from '../questions/question_form_container';
+import { introJs } from 'intro.js';
 
 
 class PollsIndex extends React.Component{
@@ -17,6 +18,11 @@ class PollsIndex extends React.Component{
 
   show() {
     this.setState({ visible: !this.state.visible, button_text: this.state.button_text === "Create" ? "X" : "Create", style: this.state.style.width === "" ? {width: 40+"px", marginLeft: 60+"px"} : {width: "",marginLeft:""} });
+    introJs().exit();
+  }
+
+  componentDidMount() {
+    introJs().start();
   }
 
   hide() {
@@ -43,6 +49,9 @@ class PollsIndex extends React.Component{
                 className="create-button"
                 onClick={this.show}
                 style={this.state.style}
+                data-step="2"
+                data-click
+                data-intro="To create a new poll - click this button!"
                 >{this.state.button_text}
               </button>
             </div>

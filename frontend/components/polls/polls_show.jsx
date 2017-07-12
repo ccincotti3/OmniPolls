@@ -4,6 +4,7 @@ import { BarChart, Bar, Brush, Cell, CartesianGrid, ReferenceLine, ReferenceDot,
   XAxis, YAxis, Tooltip, Legend, ErrorBar, LabelList, ResponsiveContainer } from 'recharts';
 import NavBarContainer from "./nav_bar_container";
 import { Link } from 'react-router-dom';
+import { introJs } from 'intro.js';
 
 class PollsShow extends React.Component {
   constructor(props){
@@ -20,6 +21,7 @@ class PollsShow extends React.Component {
     this.props.clearErrors();
     this.channel.bind('my-event', this.handleEvents);
     this.props.fetchActive();
+    introJs().start();
   }
 
   handleEvents(data){
@@ -119,13 +121,19 @@ class PollsShow extends React.Component {
     return (
       <div>
         <NavBarContainer />
-        <div className="chart">
-          <h1>{this.props.question.body}</h1>
-          <h2><i className="fa fa-link" aria-hidden="true"></i>  When poll is active, respond at <strong><Link to={"/" + this.props.currentUser}>omnipolls.herokuapp.com/#/{this.props.currentUser}</Link></strong></h2>
+        <div className="chart" >
+          <h1 data-step="1" data-intro="Welcome to the polls show page!" >{this.props.question.body}</h1>
+          <h2><i className="fa fa-link" aria-hidden="true"></i>  When poll is active, respond at <strong><Link to={"/" + this.props.currentUser}>omnipolls.site/#/{this.props.currentUser}</Link></strong></h2>
           <h2><strong>OR TEXT</strong> '{this.props.currentUser.toUpperCase()} YourResponseHere' to <strong>+1-609-957-6853</strong></h2>
           <h2><strong>Text answers are CaSe SeNsItIve</strong></h2>
           <div className="chart-buttons">
-            <button className={buttonClassName} onClick={this.handleActive}><i className="fa fa-link" aria-hidden="true"></i></button>
+            <button className={buttonClassName} onClick={this.handleActive}
+              data-step="2"
+              data-intro='Before audience members can respond to this poll,
+              <b>it must be active!</b><br /> <br />
+              Click here to make your poll active.'
+              >
+              <i className="fa fa-link" aria-hidden="true"></i></button>
           </div>
           <div className="chart-container">
             <ResponsiveContainer width="100%" height="100%">
