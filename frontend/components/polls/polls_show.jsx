@@ -136,7 +136,6 @@ class PollsShow extends React.Component {
               <i className="fa fa-link" aria-hidden="true"></i></button>
           </div>
           <div className="chart-container">
-            <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 className="bar-chart"
                 layout="vertical"
@@ -144,6 +143,8 @@ class PollsShow extends React.Component {
                 textAnchor="middle"
                 stackOffset="expand"
                 overflow="visible"
+                width={600}
+                height={600}
                 thisresponses="hi"
                 margin={{top: 5, right: 50, left: 20, bottom: 5}}>
                 <XAxis
@@ -161,7 +162,6 @@ class PollsShow extends React.Component {
 
                 <Bar dataKey="responses" isAnimationActive="false" fill="rgb(60, 116, 158)" />
               </BarChart>
-            </ResponsiveContainer>
           </div>
         </div>
       </div>
