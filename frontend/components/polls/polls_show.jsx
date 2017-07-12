@@ -159,7 +159,7 @@ class PollsShow extends React.Component {
                 <Tooltip content={this.renderToolTip}/>
                 <YAxis type="category" dataKey="name" stroke="#000" fontSize={20 + "px"} fontWeight="bold" overflow="visible" />
 
-                <Bar dataKey="responses" isAnimationActive="false" fill="rgb(60, 116, 158)" />
+                <Bar dataKey="responses" isAnimationActive={false} fill="rgb(60, 116, 158)" />
               </BarChart>
             </ResponsiveContainer>
           </div>
