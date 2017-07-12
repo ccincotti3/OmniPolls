@@ -144,6 +144,7 @@ class PollsShow extends React.Component {
                 textAnchor="middle"
                 stackOffset="expand"
                 overflow="visible"
+                isAnimationActive="false"
                 thisresponses="hi"
                 margin={{top: 5, right: 50, left: 20, bottom: 5}}>
                 <XAxis
