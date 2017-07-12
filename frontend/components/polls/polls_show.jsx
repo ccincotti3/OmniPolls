@@ -21,7 +21,10 @@ class PollsShow extends React.Component {
     this.props.clearErrors();
     this.channel.bind('my-event', this.handleEvents);
     this.props.fetchActive();
-    introJs().start();
+    if(!localStorage["newPollShow"]) {
+      introJs().start();
+      localStorage.setItem("newPollShow", "true");
+    }
   }
 
   handleEvents(data){

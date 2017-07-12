@@ -22,7 +22,10 @@ class PollsIndex extends React.Component{
   }
 
   componentDidMount() {
-    introJs().start();
+    if(!localStorage["newVisit"]) {
+      introJs().start();
+      localStorage.setItem("newVisit", "true");
+    }
   }
 
   hide() {
